@@ -7,7 +7,7 @@ const initialState: IReducer = {};
 
 function reducer(state = initialState, action: AnyAction): IReducer {
   switch (action.type) {
-    case types.CREATE_GRID:
+    case types.GET_POKEMONS:
       return {
         ...state,
         pokemons: 1,

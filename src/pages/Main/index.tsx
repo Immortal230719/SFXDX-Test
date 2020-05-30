@@ -1,8 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Dispatch, AnyAction } from 'redux';
 
 import { Layout, Title, Container } from 'components';
+import { getPokemons } from 'reducers';
 
 const Main: FC = () => {
+  const dispatch = useDispatch<Dispatch<AnyAction>>();
+
+  useEffect(() => {
+    dispatch(getPokemons());
+  }, [dispatch]);
+
   return (
     <Layout>
       <Title>Pokemons</Title>
