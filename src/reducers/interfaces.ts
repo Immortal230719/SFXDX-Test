@@ -1,9 +1,16 @@
 import { Action } from 'redux';
-import { NUMBERS } from 'typings';
 
 export interface IPokemonBase {
   name: string;
   url: string;
+}
+
+export interface ISinglePokemon {
+  name: string;
+  stats: any;
+  images: string[];
+  types: string[];
+  moves: any;
 }
 
 export interface AppAction extends Action {

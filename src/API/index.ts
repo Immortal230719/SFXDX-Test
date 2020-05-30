@@ -11,3 +11,8 @@ export const fetchPokemons = async () => {
   const response = await pokemons.get('');
   return response;
 };
+
+export const fetchPokemonDetailed = async (name: string) => {
+  const response = await pokemons.get(name);
+  return response;
+};

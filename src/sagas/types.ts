@@ -1,4 +1,7 @@
 export const GET_POKEMONS = 'GET_POKEMONS';
 export const PUT_POKEMONS = 'PUT_POKEMONS';
 
+export const GET_SINGLE_POKEMON = 'GET_SINGLE_POKEMON';
+export const PUT_SINGLE_POKEMON = 'PUT_SINGLE_POKEMON';
+
 export const FETCH_ERROR = 'FETCH_ERROR';
