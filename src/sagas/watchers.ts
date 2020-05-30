@@ -1,7 +1,7 @@
 import { SagaIterator } from '@redux-saga/core';
 import { takeEvery, takeLatest, all, takeLeading } from 'redux-saga/effects';
 
-import { GET_POKEMONS } from 'reducers';
+import { GET_POKEMONS } from './types';
 
 import { workerGetPokemons } from './workers';
 

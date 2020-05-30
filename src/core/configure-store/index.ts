@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux';
-import reducer from 'reducers';
+import { PokemonsReducer } from 'reducers';
 
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -15,7 +15,7 @@ const middleware = [sagaMiddleware, routerMiddleware(history)];
 export const configureStore = () =>
   createStore(
     combineReducers({
-      reducer,
+      pokemons: PokemonsReducer,
       router: connectRouter(history),
     }),
     composeWithDevTools(applyMiddleware(...middleware))

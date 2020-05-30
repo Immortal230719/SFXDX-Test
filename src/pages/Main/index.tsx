@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 
 import { Layout, Title, Container } from 'components';
-import { getPokemons } from 'reducers';
+import { getPokemons } from 'sagas';
 
 const Main: FC = () => {
   const dispatch = useDispatch<Dispatch<AnyAction>>();

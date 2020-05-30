@@ -1,8 +1,8 @@
-import reducer from './reducer';
+import reducer from './pokemons';
 
+export { default as PokemonsReducer } from './pokemons';
 export * from './actions';
 export * from './interfaces';
 export * from './types';
 
-export type IReducer = ReturnType<typeof reducer>;
-export default reducer;
+export type IPokemonsReducer = ReturnType<typeof reducer>;
