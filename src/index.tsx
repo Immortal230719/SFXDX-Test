@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ConnectedRouter } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 
 import { Provider } from 'react-redux';
 
@@ -7,9 +9,11 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, theme } from 'styles';
 
 import { configureStore, sagaMiddleware as sagaMiddlewareRun } from 'core';
+import Pages from 'pages';
 import rootSaga from 'sagas/watchers';
 
 const store = configureStore();
+const history = createBrowserHistory();
 
 sagaMiddlewareRun.run(rootSaga);
 
@@ -18,7 +22,9 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Provider store={store}>
-        <div>Hello</div>
+        <ConnectedRouter history={history}>
+          <Pages />
+        </ConnectedRouter>
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,

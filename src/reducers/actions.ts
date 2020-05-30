@@ -1,7 +1,3 @@
-import { Action } from 'redux';
+import { AppAction } from './interfaces';
 
 import * as types from './types';
-
-export const createGrid = (): Action => ({
-  type: types.CREATE_GRID,
-});
