@@ -1,9 +1,14 @@
 import React, { FC } from 'react';
 
-import { Layout } from 'components';
+import { Layout, Title, Container } from 'components';
 
 const Main: FC = () => {
-  return <Layout>Page Main</Layout>;
+  return (
+    <Layout>
+      <Title>Pokemons</Title>
+      <Container>Main logic</Container>
+    </Layout>
+  );
 };
 
 export default Main;

@@ -37,7 +37,7 @@ export default createGlobalStyle`
       color: ${props.theme.colors.black};
       display: flex;
       justify-content: center;
-      padding: 15px;
+      padding: 0;
     }
   `}
 `;
