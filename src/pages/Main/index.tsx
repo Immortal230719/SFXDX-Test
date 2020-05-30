@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 
@@ -14,11 +15,11 @@ const Main: FC = () => {
   const dispatch = useDispatch<Dispatch<AnyAction>>();
   const pokemons = useSelector(selectPokemons);
 
-  console.log(search);
-
   useEffect(() => {
-    dispatch(getPokemons());
-  }, [dispatch]);
+    if (pokemons.length === 0) {
+      dispatch(getPokemons());
+    }
+  }, [dispatch, pokemons.length]);
 
   const changeHandler = (e: any) => {
     setSearch(e.target.value);
@@ -34,7 +35,12 @@ const Main: FC = () => {
           .map(({ name, url }: IPokemonBase) => {
             return (
               <div key={name}>
-                <Card title={name} img="https://via.placeholder.com/200.png" />
+                <Link to={`pokemon/${name}`}>
+                  <Card
+                    title={name}
+                    img="https://via.placeholder.com/200.png"
+                  />
+                </Link>
               </div>
             );
           })}

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import Main from 'pages/Main';
+import PokemonDetailed from 'pages/PokemonDetailed';
 
 export interface MYROUTE {
   path: string;
@@ -14,6 +15,11 @@ export const routes = (): MYROUTE[] => {
       path: '/',
       component: Main,
       exact: true,
+    },
+    {
+      path: '/pokemon/:name',
+      component: PokemonDetailed,
+      exact: false,
     },
   ];
 };

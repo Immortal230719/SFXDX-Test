@@ -6,7 +6,6 @@ const Layout = styled.div`
     color: ${theme.colors.white};
     margin: auto;
     width: 100%;
-    padding: 0 100px;
 
     @media ${device.laptop} {
       padding: 0 30px;

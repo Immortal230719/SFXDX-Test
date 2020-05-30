@@ -4,6 +4,7 @@ const Figure = styled.figure`
   ${({ theme }) => css`
     background-color: rgb(166, 152, 243);
     padding: 20px;
+    max-width: 300px;
     border-radius: 8px;
     transition: ${theme.transition};
     cursor: pointer;
@@ -17,6 +18,7 @@ const Figure = styled.figure`
     }
 
     figcaption {
+      margin-top: 10px;
       font-family: 'Quicksand';
       font-size: 20px;
       text-align: center;
