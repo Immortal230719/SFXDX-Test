@@ -24,7 +24,9 @@ export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
     const pokemon = {
       name,
       stats: stats.map((stat: any) => stat.stat.name),
-      images: Object.values(sprites).filter((url: any) => Boolean(url)),
+      images: Object.values(sprites)
+        .filter((url: any) => Boolean(url))
+        .reverse(),
       types: types.map((element: any) => element.type.name),
       moves: [...moves],
     };

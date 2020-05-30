@@ -17,7 +17,7 @@ export const routes = (): MYROUTE[] => {
       exact: true,
     },
     {
-      path: '/pokemon/:name',
+      path: '/pokemon/:pokemoname',
       component: PokemonDetailed,
       exact: false,
     },

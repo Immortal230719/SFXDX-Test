@@ -36,7 +36,7 @@ export default createGlobalStyle`
       background: ${props.theme.colors.background};
       color: ${props.theme.colors.black};
       padding: 50px 100px;    
-      height: 2000px;
+      min-height: 100vh;
     }
     a {
       text-decoration: none;

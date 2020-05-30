@@ -3,27 +3,33 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 
-import { Layout, Title, Container } from 'components';
+import { Layout, Title, Container, ImageList } from 'components';
 import { getSinglePokemon } from 'sagas';
+import { selectSinglePokemon } from 'reducers';
 
 interface IPokemonDetailedProps {}
 
 const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
   const dispatch = useDispatch<Dispatch<AnyAction>>();
-  const { name } = useParams();
+  const { pokemoname } = useParams();
+  const { name, stats, images, moves, types } = useSelector(
+    selectSinglePokemon
+  );
   const nameOfPokemon = `${name.charAt(0).toUpperCase()}${name.slice(
     1,
     name.length
   )}`;
 
   useEffect(() => {
-    dispatch(getSinglePokemon(name));
+    dispatch(getSinglePokemon(pokemoname));
   }, [dispatch]);
 
   return (
     <Layout>
       <Title>{nameOfPokemon}</Title>
-      <Container>detailed</Container>
+      <Container>
+        <ImageList images={images} />
+      </Container>
     </Layout>
   );
 };
