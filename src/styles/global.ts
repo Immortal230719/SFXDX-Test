@@ -35,9 +35,12 @@ export default createGlobalStyle`
       font-family: 'Montserrat';
       background: ${props.theme.colors.background};
       color: ${props.theme.colors.black};
-      display: flex;
-      justify-content: center;
-      padding: 0;
+      padding: 50px 100px;    
+      height: 2000px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
   `}
 `;
