@@ -4,31 +4,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 
 import { getSingleMove } from 'sagas';
+import { selectMove } from 'reducers';
 
-import {
-  Layout,
-  Title,
-  Container,
-  ImageList,
-  TextList,
-  Button,
-  UnorderedList,
-  Subtitle,
-} from 'components';
+import { Layout, Title, Container, Button, MoveList } from 'components';
 
 const Move: React.FC = () => {
   const dispatch = useDispatch<Dispatch<AnyAction>>();
   const history = useHistory();
   const { id } = useParams();
+  const move = useSelector(selectMove);
 
   useEffect(() => {
     dispatch(getSingleMove(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <Layout>
-      <Title>title</Title>
+      <Title>Move {move.name}</Title>
       <Container>
+        <MoveList data={move} />
         <Button onClick={history.goBack} text="back" />
       </Container>
     </Layout>

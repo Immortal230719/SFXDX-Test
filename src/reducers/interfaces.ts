@@ -14,7 +14,7 @@ export interface ISinglePokemon {
 }
 
 export interface ISingleMove {
-  id: number;
+  moveId: number;
   name: string;
   power: number;
   generation: string;

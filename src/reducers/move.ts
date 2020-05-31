@@ -4,7 +4,7 @@ import { ISingleMove } from './interfaces';
 import { PUT_SINGLE_MOVE } from 'sagas';
 
 const initialState: ISingleMove = {
-  id: 0,
+  moveId: 0,
   name: '',
   power: 0,
   generation: '',

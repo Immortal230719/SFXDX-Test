@@ -33,7 +33,7 @@ const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
     if (name === '' || pokemoname !== name) {
       dispatch(getSinglePokemon(pokemoname));
     }
-  }, [dispatch, pokemoname]);
+  }, [dispatch, pokemoname, name]);
 
   return (
     <Layout>

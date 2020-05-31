@@ -52,7 +52,7 @@ export function* workerGetSingleMove(action: AppAction): SagaIterator {
     const { data } = yield call(fetchMove, action.payload);
 
     const move = {
-      id: data.id,
+      moveId: data.id,
       name: data.name,
       power: data.power,
       generation: data.generation.name,
@@ -61,14 +61,11 @@ export function* workerGetSingleMove(action: AppAction): SagaIterator {
       type: data.type.name,
       target: data.target.name,
       entries: data.effect_entries.map((item: any) => {
-        const { effect, short_effect } = item;
-        return {
-          effect: effect.replace(/\$effect_chance%/, '').replace(/ +/g, ' '),
-          short_effect: short_effect
-            .replace(/\$effect_chance%/, '')
-            .replace(/ +/g, ' '),
-        };
-      }),
+        // const { effect, short_effect } = item;
+        return item.short_effect
+          .replace(/\$effect_chance%/, '')
+          .replace(/ +/g, ' ');
+      })[0],
     };
     yield put(putSingleMove(move));
   } catch (error) {
