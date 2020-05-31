@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import Main from 'pages/Main';
 import PokemonDetailed from 'pages/PokemonDetailed';
+import Move from 'pages/Move';
 
 export interface MYROUTE {
   path: string;
@@ -17,8 +18,13 @@ export const routes = (): MYROUTE[] => {
       exact: true,
     },
     {
-      path: '/pokemon/:name',
+      path: '/pokemon/:pokemoname',
       component: PokemonDetailed,
+      exact: false,
+    },
+    {
+      path: '/moves/:id',
+      component: Move,
       exact: false,
     },
   ];

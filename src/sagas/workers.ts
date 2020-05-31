@@ -1,8 +1,9 @@
+import { AppAction } from 'reducers';
 import { SagaIterator } from '@redux-saga/core';
-import { put, call, select } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
 
-import { fetchPokemons } from 'API';
-import { fetchError, putPokemons } from './actions';
+import { fetchPokemons, fetchPokemonDetailed } from 'API';
+import { fetchError, putPokemons, putSinglePokemon } from './actions';
 
 export function* workerGetPokemons(): SagaIterator {
   try {
@@ -10,6 +11,32 @@ export function* workerGetPokemons(): SagaIterator {
       data: { results },
     } = yield call(fetchPokemons);
     yield put(putPokemons(results));
+  } catch (error) {
+    yield put(fetchError(error.message));
+  }
+}
+
+export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
+  try {
+    const { data } = yield call(fetchPokemonDetailed, action.payload);
+    const { name, stats, sprites, types, moves } = data;
+
+    const pokemon = {
+      name,
+      stats: stats.map((stat: any) => stat.stat.name),
+      images: Object.values(sprites)
+        .filter((url: any) => Boolean(url))
+        .reverse(),
+      types: types.map((element: any) => element.type.name),
+      moves: moves.map(({ move }: any) => {
+        return {
+          id: move.url.match(/(move\/)([0-9]+)/g)[0].match(/[0-9]+/)[0],
+          name: move.name,
+        };
+      }),
+    };
+
+    yield put(putSinglePokemon(pokemon));
   } catch (error) {
     yield put(fetchError(error.message));
   }

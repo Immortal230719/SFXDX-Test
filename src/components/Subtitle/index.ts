@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 
-const Layout = styled.div`
+const Subtitle = styled.h3`
   ${({ theme }) => css`
     color: ${theme.colors.white};
-    margin: auto;
-    width: 100%;
+    margin: 20px 0;
+    font-size: 25px;
   `}
 `;
 
-export default Layout;
+export default Subtitle;

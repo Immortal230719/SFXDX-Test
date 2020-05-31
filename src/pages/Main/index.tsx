@@ -34,14 +34,14 @@ const Main: FC = () => {
           })
           .map(({ name, url }: IPokemonBase) => {
             return (
-              <div key={name}>
+              <React.Fragment key={name}>
                 <Link to={`pokemon/${name}`}>
                   <Card
                     title={name}
                     img="https://via.placeholder.com/200.png"
                   />
                 </Link>
-              </div>
+              </React.Fragment>
             );
           })}
       </Grid>

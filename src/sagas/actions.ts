@@ -2,12 +2,22 @@ import { AppAction } from 'reducers';
 
 import * as types from './types';
 
+// Page Main
 export const getPokemons = (): AppAction => ({
   type: types.GET_POKEMONS,
 });
-
 export const putPokemons = (data: any): AppAction => ({
   type: types.PUT_POKEMONS,
+  payload: data,
+});
+
+// Page with detailed pokemon
+export const getSinglePokemon = (name: string): AppAction => ({
+  type: types.GET_SINGLE_POKEMON,
+  payload: name,
+});
+export const putSinglePokemon = (data: any): AppAction => ({
+  type: types.PUT_SINGLE_POKEMON,
   payload: data,
 });
 

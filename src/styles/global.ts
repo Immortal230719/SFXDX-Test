@@ -1,5 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import device from './device';
 
 function fontFace(
   name: string,
@@ -36,11 +37,20 @@ export default createGlobalStyle`
       background: ${props.theme.colors.background};
       color: ${props.theme.colors.black};
       padding: 50px 100px;    
-      height: 2000px;
+      min-height: 100vh;
+
+      @media ${device.laptop} {
+      padding: 20px 30px;
+    }
     }
     a {
       text-decoration: none;
       color: inherit;
+    }
+    ul {    
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
   `}
 `;

@@ -3,3 +3,10 @@
 export const selectPokemons = (state: any) => {
   return state.pokemons;
 };
+
+export const selectSinglePokemon = (state: any) => {
+  if (state.detailed) {
+    return state.detailed;
+  }
+  return null;
+};
