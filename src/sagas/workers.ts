@@ -28,7 +28,12 @@ export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
         .filter((url: any) => Boolean(url))
         .reverse(),
       types: types.map((element: any) => element.type.name),
-      moves: [...moves],
+      moves: moves.map(({ move }: any) => {
+        return {
+          id: move.url.match(/(move\/)([0-9]+)/g)[0].match(/[0-9]+/)[0],
+          name: move.name,
+        };
+      }),
     };
 
     yield put(putSinglePokemon(pokemon));

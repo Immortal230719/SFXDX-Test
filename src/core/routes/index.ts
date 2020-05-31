@@ -21,5 +21,10 @@ export const routes = (): MYROUTE[] => {
       component: PokemonDetailed,
       exact: false,
     },
+    {
+      path: '/moves/:id',
+      component: PokemonDetailed,
+      exact: false,
+    },
   ];
 };
