@@ -21,11 +21,6 @@ export const StyledItemTextList = styled.ul`
       padding: 8px;
       font-size: 18px;
       width: fit-content;
-
-      &:hover {
-        border-bottom: 1px solid ${theme.colors.blue};
-        color: ${theme.colors.blue};
-      }
     }
   `}
 `;

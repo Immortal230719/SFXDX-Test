@@ -13,23 +13,20 @@ export const StyledMoveList = styled.ul`
     li {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 10px 10px;
       font-size: 20px;
       line-height: 25px;
 
       span {
         &:nth-child(1) {
-          color: ${theme.colors.deepBlue};
+          color: ${theme.colors.lightBlue};
           margin: 0 20px 0 0;
         }
 
         &:nth-child(2) {
           text-align: end;
         }
-      }
-
-      &:hover {
-        border-bottom: 1px solid ${theme.colors.lightBlue};
       }
     }
   `}

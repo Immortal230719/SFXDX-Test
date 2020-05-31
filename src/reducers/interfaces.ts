@@ -25,6 +25,12 @@ export interface ISingleMove {
   entries: any;
 }
 
+export interface IPagination {
+  count: number;
+  next: string;
+  previous: null | string;
+}
+
 export interface AppAction extends Action {
   payload?: any;
 }

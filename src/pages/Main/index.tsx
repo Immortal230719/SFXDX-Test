@@ -5,24 +5,29 @@ import { Dispatch, AnyAction } from 'redux';
 
 import { Layout, Title, Container } from 'components';
 import { getPokemons } from 'sagas';
-import { selectPokemons } from 'reducers';
+import { selectPokemons, selectPagination } from 'reducers';
 
 import { IPokemonBase } from 'reducers';
-import { Grid, Card, Input } from 'components';
+import { Grid, Card, Input, Pagination } from 'components';
 
 const Main: FC = () => {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch<Dispatch<AnyAction>>();
   const pokemons = useSelector(selectPokemons);
+  const pagination = useSelector(selectPagination);
 
   useEffect(() => {
     if (pokemons.length === 0) {
-      dispatch(getPokemons());
+      dispatch(getPokemons(0));
     }
   }, [dispatch, pokemons.length]);
 
   const changeHandler = (e: any) => {
     setSearch(e.target.value);
+  };
+
+  const handlePageClick = (e: any) => {
+    dispatch(getPokemons(e.selected));
   };
 
   const renderPokemons = (arrOfPokemons: IPokemonBase[]) => {
@@ -57,6 +62,7 @@ const Main: FC = () => {
         onChange={changeHandler}
         placeholder="Search"
       />
+      <Pagination data={pagination} handlePageClick={handlePageClick} />
       <Container>{renderPokemons(pokemons)}</Container>
     </Layout>
   );

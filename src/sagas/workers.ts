@@ -8,13 +8,20 @@ import {
   putPokemons,
   putSinglePokemon,
   putSingleMove,
+  putPagination,
 } from './actions';
 
-export function* workerGetPokemons(): SagaIterator {
+export function* workerGetPokemons(action: AppAction): SagaIterator {
   try {
     const {
-      data: { results },
-    } = yield call(fetchPokemons);
+      data: { count, next, previous, results },
+    } = yield call(fetchPokemons, action.payload);
+    const paginationData = {
+      count,
+      next,
+      previous,
+    };
+    yield put(putPagination(paginationData));
     yield put(putPokemons(results));
   } catch (error) {
     yield put(fetchError(error.message));

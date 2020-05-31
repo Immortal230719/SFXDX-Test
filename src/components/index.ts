@@ -10,3 +10,4 @@ export { default as Button } from './Button';
 export { default as UnorderedList } from './UnorderedList';
 export { default as Subtitle } from './Subtitle';
 export { default as MoveList } from './MoveList';
+export { default as Pagination } from './Pagination';

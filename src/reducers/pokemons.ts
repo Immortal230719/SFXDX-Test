@@ -11,7 +11,7 @@ function reducer(
 ): IPokemonBase[] {
   switch (type) {
     case PUT_POKEMONS:
-      return [...state, ...payload];
+      return [...payload];
     default:
       return state;
   }

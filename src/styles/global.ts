@@ -40,8 +40,18 @@ export default createGlobalStyle`
       min-height: 100vh;
 
       @media ${device.laptop} {
-      padding: 20px 30px;
+        padding: 20px 30px;
+      }
     }
+
+    #react-paginate ul {
+      display: inline-block;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #react-paginate li {
+      display: inline-block;
     }
     a {
       text-decoration: none;
