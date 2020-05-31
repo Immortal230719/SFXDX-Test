@@ -10,3 +10,10 @@ export const selectSinglePokemon = (state: any) => {
   }
   return null;
 };
+
+export const selectMove = (state: any) => {
+  if (state.move) {
+    return state.move;
+  }
+  return null;
+};

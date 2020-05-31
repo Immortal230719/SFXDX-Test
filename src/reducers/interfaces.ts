@@ -13,6 +13,18 @@ export interface ISinglePokemon {
   moves: any;
 }
 
+export interface ISingleMove {
+  moveId: number;
+  name: string;
+  power: number;
+  generation: string;
+  accuracy: number;
+  damageClass: string;
+  type: string;
+  target: string;
+  entries: any;
+}
+
 export interface AppAction extends Action {
   payload?: any;
 }

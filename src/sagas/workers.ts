@@ -2,8 +2,13 @@ import { AppAction } from 'reducers';
 import { SagaIterator } from '@redux-saga/core';
 import { put, call } from 'redux-saga/effects';
 
-import { fetchPokemons, fetchPokemonDetailed } from 'API';
-import { fetchError, putPokemons, putSinglePokemon } from './actions';
+import { fetchPokemons, fetchPokemonDetailed, fetchMove } from 'API';
+import {
+  fetchError,
+  putPokemons,
+  putSinglePokemon,
+  putSingleMove,
+} from './actions';
 
 export function* workerGetPokemons(): SagaIterator {
   try {
@@ -37,6 +42,32 @@ export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
     };
 
     yield put(putSinglePokemon(pokemon));
+  } catch (error) {
+    yield put(fetchError(error.message));
+  }
+}
+
+export function* workerGetSingleMove(action: AppAction): SagaIterator {
+  try {
+    const { data } = yield call(fetchMove, action.payload);
+
+    const move = {
+      moveId: data.id,
+      name: data.name,
+      power: data.power,
+      generation: data.generation.name,
+      accuracy: data.accuracy,
+      damageClass: data.damage_class.name,
+      type: data.type.name,
+      target: data.target.name,
+      entries: data.effect_entries.map((item: any) => {
+        // const { effect, short_effect } = item;
+        return item.short_effect
+          .replace(/\$effect_chance%/, '')
+          .replace(/ +/g, ' ');
+      })[0],
+    };
+    yield put(putSingleMove(move));
   } catch (error) {
     yield put(fetchError(error.message));
   }

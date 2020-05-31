@@ -30,8 +30,10 @@ const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
   )}`;
 
   useEffect(() => {
-    dispatch(getSinglePokemon(pokemoname));
-  }, [dispatch]);
+    if (name === '' || pokemoname !== name) {
+      dispatch(getSinglePokemon(pokemoname));
+    }
+  }, [dispatch, pokemoname, name]);
 
   return (
     <Layout>
