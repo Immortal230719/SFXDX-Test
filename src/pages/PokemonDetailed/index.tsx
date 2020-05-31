@@ -3,7 +3,14 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 
-import { Layout, Title, Container, ImageList, TextList } from 'components';
+import {
+  Layout,
+  Title,
+  Container,
+  ImageList,
+  TextList,
+  Button,
+} from 'components';
 import { getSinglePokemon } from 'sagas';
 import { selectSinglePokemon } from 'reducers';
 
@@ -31,6 +38,9 @@ const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
         <ImageList images={images} />
         <TextList title="type" data={types} />
         <TextList title="stats" data={stats} />
+        <Link to="/">
+          <Button text="back to main" />
+        </Link>
       </Container>
     </Layout>
   );

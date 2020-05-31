@@ -1,9 +1,13 @@
 import React from 'react';
 
-interface IButtonProps {}
+import { StyledButton } from './styles';
 
-const Button: React.FC<IButtonProps> = () => {
-  return <button></button>;
+interface IButtonProps {
+  text: string;
+}
+
+const Button: React.FC<IButtonProps> = ({ text }) => {
+  return <StyledButton>{text}</StyledButton>;
 };
 
 export default Button;
