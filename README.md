@@ -9,3 +9,27 @@ Tools:
 5. redux
 6. redux-saga
 7. eslint-airbnb
+
+### To run project locally:
+
+```
+npm i
+```
+
+and
+
+```
+npm run start
+```
+
+#### Or, if you have Yarn
+
+```
+yarn
+```
+
+then
+
+```
+yarn start
+```

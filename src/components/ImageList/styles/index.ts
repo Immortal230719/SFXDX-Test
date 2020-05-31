@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledImageList = styled.ul`
-  list-style: none;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
