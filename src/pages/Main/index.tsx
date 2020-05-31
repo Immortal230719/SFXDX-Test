@@ -3,21 +3,30 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 
-import { Layout, Title, Container } from 'components';
-import { getPokemons } from 'sagas';
-import { selectPokemons } from 'reducers';
+import {
+  Layout,
+  Container,
+  Grid,
+  Card,
+  Input,
+  Pagination,
+  Logo,
+  Wrapper,
+} from 'components';
 
+import { getPokemons } from 'sagas';
+import { selectPokemons, selectPagination } from 'reducers';
 import { IPokemonBase } from 'reducers';
-import { Grid, Card, Input } from 'components';
 
 const Main: FC = () => {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch<Dispatch<AnyAction>>();
   const pokemons = useSelector(selectPokemons);
+  const pagination = useSelector(selectPagination);
 
   useEffect(() => {
     if (pokemons.length === 0) {
-      dispatch(getPokemons());
+      dispatch(getPokemons(0));
     }
   }, [dispatch, pokemons.length]);
 
@@ -25,12 +34,16 @@ const Main: FC = () => {
     setSearch(e.target.value);
   };
 
+  const handlePageClick = (e: any) => {
+    dispatch(getPokemons(e.selected));
+  };
+
   const renderPokemons = (arrOfPokemons: IPokemonBase[]) => {
     return (
       <Grid>
         {arrOfPokemons
           .filter(pokemon => {
-            return pokemon.name.startsWith(search.trim());
+            return pokemon.name.startsWith(search.trim().toLowerCase());
           })
           .map(({ name, url }: IPokemonBase) => {
             return (
@@ -38,7 +51,7 @@ const Main: FC = () => {
                 <Link to={`pokemon/${name}`}>
                   <Card
                     title={name}
-                    img="https://via.placeholder.com/200.png"
+                    img={`https://avatars.dicebear.com/api/gridy/${name}.svg`}
                   />
                 </Link>
               </React.Fragment>
@@ -50,14 +63,19 @@ const Main: FC = () => {
 
   return (
     <Layout>
-      <Title>Pokemons</Title>
+      <Wrapper className="center">
+        <Logo />
+      </Wrapper>
+      <Pagination data={pagination} handlePageClick={handlePageClick} />
       <Input
         type="text"
         value={search}
         onChange={changeHandler}
         placeholder="Search"
       />
+
       <Container>{renderPokemons(pokemons)}</Container>
+      <Pagination data={pagination} handlePageClick={handlePageClick} />
     </Layout>
   );
 };

@@ -15,9 +15,3 @@ export const StyledItem = styled.span`
     }
   `}
 `;
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 0 50px 0;
-`;

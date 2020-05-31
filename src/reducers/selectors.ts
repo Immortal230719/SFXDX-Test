@@ -17,3 +17,10 @@ export const selectMove = (state: any) => {
   }
   return null;
 };
+
+export const selectPagination = (state: any) => {
+  if (state.pagination) {
+    return state.pagination;
+  }
+  return null;
+};

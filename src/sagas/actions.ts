@@ -3,11 +3,16 @@ import { AppAction } from 'reducers';
 import * as types from './types';
 
 // Page Main
-export const getPokemons = (): AppAction => ({
+export const getPokemons = (data: any): AppAction => ({
   type: types.GET_POKEMONS,
+  payload: data,
 });
 export const putPokemons = (data: any): AppAction => ({
   type: types.PUT_POKEMONS,
+  payload: data,
+});
+export const putPagination = (data: any): AppAction => ({
+  type: types.PUT_PAGINATION,
   payload: data,
 });
 

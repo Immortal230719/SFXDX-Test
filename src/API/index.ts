@@ -7,8 +7,8 @@ const pokemons = axios.create({
   baseURL: `${baseUrl}pokemon`,
 });
 
-export const fetchPokemons = async () => {
-  const response = await pokemons.get('');
+export const fetchPokemons = async (offset: number) => {
+  const response = await pokemons.get(`?offset=${offset * 20}&limit=20"`);
   return response;
 };
 export const fetchPokemonDetailed = async (name: string) => {

@@ -40,8 +40,36 @@ export default createGlobalStyle`
       min-height: 100vh;
 
       @media ${device.laptop} {
-      padding: 20px 30px;
+        padding: 20px 30px;
+      }
+
+      @media ${device.mobileL} {
+        padding: 20px 10px;
+      }
     }
+
+    .center {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .between {
+      justify-content: space-between;
+    }
+
+    .around {
+      justify-content: space-around;
+    }
+    
+
+    #react-paginate ul {
+      display: inline-block;
+      padding-left: 15px;
+      padding-right: 15px;
+    }    
+
+    #react-paginate li {
+      display: inline-block;
     }
     a {
       text-decoration: none;

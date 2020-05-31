@@ -1,23 +1,20 @@
 import { AppAction } from './interfaces';
 
-import { ISinglePokemon } from './interfaces';
-import { PUT_SINGLE_POKEMON } from 'sagas';
+import { IPagination } from './interfaces';
+import { PUT_PAGINATION } from 'sagas';
 
-const initialState: ISinglePokemon = {
-  name: '',
-  stats: [],
-  abilities: [],
-  images: [],
-  types: [],
-  moves: [],
+const initialState: IPagination = {
+  count: 0,
+  next: '',
+  previous: null,
 };
 
 function reducer(
   state = initialState,
   { type, payload }: AppAction
-): ISinglePokemon {
+): IPagination {
   switch (type) {
-    case PUT_SINGLE_POKEMON:
+    case PUT_PAGINATION:
       return {
         ...state,
         ...payload,

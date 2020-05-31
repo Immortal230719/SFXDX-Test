@@ -8,6 +8,7 @@ export interface IPokemonBase {
 export interface ISinglePokemon {
   name: string;
   stats: any;
+  abilities: string[];
   images: string[];
   types: string[];
   moves: any;
@@ -23,6 +24,12 @@ export interface ISingleMove {
   type: string;
   target: string;
   entries: any;
+}
+
+export interface IPagination {
+  count: number;
+  next: string;
+  previous: null | string;
 }
 
 export interface AppAction extends Action {
