@@ -10,6 +10,8 @@ import {
   ImageList,
   TextList,
   Button,
+  UnorderedList,
+  Subtitle,
 } from 'components';
 import { getSinglePokemon } from 'sagas';
 import { selectSinglePokemon } from 'reducers';
@@ -38,6 +40,8 @@ const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
         <ImageList images={images} />
         <TextList title="type" data={types} />
         <TextList title="stats" data={stats} />
+        <Subtitle>Moves:</Subtitle>
+        <UnorderedList data={moves} />
         <Link to="/">
           <Button text="back to main" />
         </Link>

@@ -8,3 +8,4 @@ export { default as ImageList } from './ImageList';
 export { default as TextList } from './TextList';
 export { default as Button } from './Button';
 export { default as UnorderedList } from './UnorderedList';
+export { default as Subtitle } from './Subtitle';
