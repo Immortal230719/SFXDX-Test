@@ -1,15 +1,37 @@
-import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Dispatch, AnyAction } from 'redux';
 
-import { Button } from 'components';
+import { getSingleMove } from 'sagas';
 
-// interface IMoveProps extends RouteComponentProps<any> {}
+import {
+  Layout,
+  Title,
+  Container,
+  ImageList,
+  TextList,
+  Button,
+  UnorderedList,
+  Subtitle,
+} from 'components';
 
 const Move: React.FC = () => {
+  const dispatch = useDispatch<Dispatch<AnyAction>>();
+  const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(getSingleMove(id));
+  }, [dispatch]);
+
   return (
-    <div>
-      <Button text="back" />
-    </div>
+    <Layout>
+      <Title>title</Title>
+      <Container>
+        <Button onClick={history.goBack} text="back" />
+      </Container>
+    </Layout>
   );
 };
 
