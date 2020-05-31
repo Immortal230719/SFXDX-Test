@@ -3,12 +3,20 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 
-import { Layout, Title, Container } from 'components';
+import {
+  Layout,
+  Container,
+  Grid,
+  Card,
+  Input,
+  Pagination,
+  Logo,
+  Wrapper,
+} from 'components';
+
 import { getPokemons } from 'sagas';
 import { selectPokemons, selectPagination } from 'reducers';
-
 import { IPokemonBase } from 'reducers';
-import { Grid, Card, Input, Pagination } from 'components';
 
 const Main: FC = () => {
   const [search, setSearch] = useState('');
@@ -35,7 +43,7 @@ const Main: FC = () => {
       <Grid>
         {arrOfPokemons
           .filter(pokemon => {
-            return pokemon.name.startsWith(search.trim());
+            return pokemon.name.startsWith(search.trim().toLowerCase());
           })
           .map(({ name, url }: IPokemonBase) => {
             return (
@@ -43,7 +51,7 @@ const Main: FC = () => {
                 <Link to={`pokemon/${name}`}>
                   <Card
                     title={name}
-                    img="https://via.placeholder.com/200.png"
+                    img={`https://avatars.dicebear.com/api/gridy/${name}.svg`}
                   />
                 </Link>
               </React.Fragment>
@@ -55,15 +63,19 @@ const Main: FC = () => {
 
   return (
     <Layout>
-      <Title>Pokemons</Title>
+      <Wrapper className="center">
+        <Logo />
+      </Wrapper>
+      <Pagination data={pagination} handlePageClick={handlePageClick} />
       <Input
         type="text"
         value={search}
         onChange={changeHandler}
         placeholder="Search"
       />
-      <Pagination data={pagination} handlePageClick={handlePageClick} />
+
       <Container>{renderPokemons(pokemons)}</Container>
+      <Pagination data={pagination} handlePageClick={handlePageClick} />
     </Layout>
   );
 };

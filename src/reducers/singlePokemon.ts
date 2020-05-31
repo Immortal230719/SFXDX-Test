@@ -6,6 +6,7 @@ import { PUT_SINGLE_POKEMON } from 'sagas';
 const initialState: ISinglePokemon = {
   name: '',
   stats: [],
+  abilities: [],
   images: [],
   types: [],
   moves: [],

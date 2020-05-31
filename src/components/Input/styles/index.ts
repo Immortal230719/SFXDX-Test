@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { device } from 'styles';
 
 const InputWrap = styled.div`
   ${({ theme }) => css`
@@ -8,6 +9,10 @@ const InputWrap = styled.div`
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+
+    @media ${device.laptop} {
+      width: 100%;
+    }
 
     span {
       position: absolute;

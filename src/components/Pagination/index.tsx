@@ -20,7 +20,7 @@ const Pagination: React.FC<IPaginationProps> = ({ data, handlePageClick }) => {
         breakClassName={'break-me'}
         pageCount={count / 20}
         marginPagesDisplayed={1}
-        pageRangeDisplayed={3}
+        pageRangeDisplayed={2}
         onPageChange={handlePageClick}
         activeClassName={'active'}
       />

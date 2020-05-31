@@ -17,6 +17,7 @@ export const StyledMoveList = styled.ul`
       padding: 10px 10px;
       font-size: 20px;
       line-height: 25px;
+      user-select: none;
 
       span {
         &:nth-child(1) {

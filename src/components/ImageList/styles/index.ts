@@ -5,7 +5,6 @@ const StyledImageList = styled.ul`
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px;
   width: 100%;
 `;
 

@@ -12,6 +12,7 @@ import {
   Button,
   UnorderedList,
   Subtitle,
+  Wrapper,
 } from 'components';
 import { getSinglePokemon } from 'sagas';
 import { selectSinglePokemon } from 'reducers';
@@ -21,7 +22,7 @@ interface IPokemonDetailedProps {}
 const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
   const dispatch = useDispatch<Dispatch<AnyAction>>();
   const { pokemoname } = useParams();
-  const { name, stats, images, moves, types } = useSelector(
+  const { name, stats, images, moves, types, abilities } = useSelector(
     selectSinglePokemon
   );
   const nameOfPokemon = `${name.charAt(0).toUpperCase()}${name.slice(
@@ -37,16 +38,23 @@ const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
 
   return (
     <Layout>
-      <Title>{nameOfPokemon}</Title>
-      <Container>
-        <ImageList images={images} />
-        <TextList title="type" data={types} />
-        <TextList title="stats" data={stats} />
-        <Subtitle>Moves:</Subtitle>
-        <UnorderedList data={moves} />
+      <Wrapper className="center between">
+        <Title>{nameOfPokemon}</Title>
         <Link to="/">
           <Button text="back to main" />
         </Link>
+      </Wrapper>
+      <Container>
+        <ImageList images={images} />
+        <Wrapper className="around">
+          <TextList title="type" data={types} />
+          <TextList title="abilities" data={abilities} />
+          <TextList title="stats" data={stats} />
+        </Wrapper>
+        <Subtitle>Moves:</Subtitle>
+        <Wrapper>
+          <UnorderedList data={moves} />
+        </Wrapper>
       </Container>
     </Layout>
   );

@@ -8,8 +8,8 @@ export const StyledTextList = styled.fieldset`
     padding: 10px;
     border-radius: 10px;
     border: 2px solid ${theme.colors.lightBlue};
-    max-width: 300px;
-    margin: 50px 0;
+    width: 300px;
+    margin: 30px 0;
   `}
 `;
 
@@ -21,6 +21,7 @@ export const StyledItemTextList = styled.ul`
       padding: 8px;
       font-size: 18px;
       width: fit-content;
+      user-select: none;
     }
   `}
 `;
@@ -30,5 +31,6 @@ export const StyledTitleTextList = styled.legend`
     color: ${theme.colors.white};
     text-transform: uppercase;
     padding: 0 7px;
+    user-select: none;
   `}
 `;

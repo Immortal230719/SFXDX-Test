@@ -8,6 +8,7 @@ export interface IPokemonBase {
 export interface ISinglePokemon {
   name: string;
   stats: any;
+  abilities: string[];
   images: string[];
   types: string[];
   moves: any;

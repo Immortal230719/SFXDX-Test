@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { StyledItem, Wrapper } from './styles';
+import { StyledItem } from './styles';
 
 interface IUnorderedListProps {
   data: any;
@@ -14,7 +14,7 @@ interface IMovesItem {
 
 const UnorderedList: React.FC<IUnorderedListProps> = ({ data }) => {
   return (
-    <Wrapper>
+    <>
       {data.map(({ id, name }: IMovesItem) => {
         return (
           <Link key={id} to={`/moves/${id}`}>
@@ -22,7 +22,7 @@ const UnorderedList: React.FC<IUnorderedListProps> = ({ data }) => {
           </Link>
         );
       })}
-    </Wrapper>
+    </>
   );
 };
 

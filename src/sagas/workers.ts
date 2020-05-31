@@ -31,11 +31,13 @@ export function* workerGetPokemons(action: AppAction): SagaIterator {
 export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
   try {
     const { data } = yield call(fetchPokemonDetailed, action.payload);
-    const { name, stats, sprites, types, moves } = data;
+
+    const { name, stats, sprites, types, moves, abilities } = data;
 
     const pokemon = {
       name,
-      stats: stats.map((stat: any) => stat.stat.name),
+      abilities: abilities.map(({ ability }: any) => ability.name),
+      stats: stats.map(({ stat }: any) => stat.name),
       images: Object.values(sprites)
         .filter((url: any) => Boolean(url))
         .reverse(),
