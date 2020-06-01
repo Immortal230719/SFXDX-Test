@@ -69,7 +69,7 @@ export function* workerGetSingleMove(action: AppAction): SagaIterator {
       damageClass: data.damage_class.name,
       type: data.type.name,
       target: data.target.name,
-      entries: data.effect_entries.map((item: any) => {
+      effects: data.effect_entries.map((item: any) => {
         // const { effect, short_effect } = item;
         return item.short_effect
           .replace(/\$effect_chance%/, '')

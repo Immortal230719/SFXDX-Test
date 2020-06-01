@@ -23,7 +23,7 @@ export interface ISingleMove {
   damageClass: string;
   type: string;
   target: string;
-  entries: any;
+  effects: any;
 }
 
 export interface IPagination {

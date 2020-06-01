@@ -12,7 +12,7 @@ const initialState: ISingleMove = {
   damageClass: '',
   type: '',
   target: '',
-  entries: [],
+  effects: [],
 };
 
 function reducer(
