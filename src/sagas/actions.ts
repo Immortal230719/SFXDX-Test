@@ -40,3 +40,9 @@ export const putSingleMove = (data: any): AppAction => ({
   type: types.PUT_SINGLE_MOVE,
   payload: data,
 });
+
+// Toggle backDrop
+export const putToggleBackDrop = (toggle: boolean): AppAction => ({
+  type: types.TOGGLE_BACKDROP,
+  payload: toggle,
+});

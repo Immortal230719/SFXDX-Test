@@ -9,10 +9,12 @@ import {
   putSinglePokemon,
   putSingleMove,
   putPagination,
+  putToggleBackDrop,
 } from './actions';
 
 export function* workerGetPokemons(action: AppAction): SagaIterator {
   try {
+    yield put(putToggleBackDrop(true));
     const {
       data: { count, results },
     } = yield call(fetchPokemons, action.payload);
@@ -21,13 +23,16 @@ export function* workerGetPokemons(action: AppAction): SagaIterator {
     };
     yield put(putPagination(paginationData));
     yield put(putPokemons(results));
+    yield put(putToggleBackDrop(false));
   } catch (error) {
+    yield put(putToggleBackDrop(false));
     yield put(fetchError(error.message));
   }
 }
 
 export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
   try {
+    yield put(putToggleBackDrop(true));
     const { data } = yield call(fetchPokemonDetailed, action.payload);
 
     const { name, stats, sprites, types, moves, abilities } = data;
@@ -47,15 +52,17 @@ export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
         };
       }),
     };
-
     yield put(putSinglePokemon(pokemon));
+    yield put(putToggleBackDrop(false));
   } catch (error) {
+    yield put(putToggleBackDrop(false));
     yield put(fetchError(error.message));
   }
 }
 
 export function* workerGetSingleMove(action: AppAction): SagaIterator {
   try {
+    yield put(putToggleBackDrop(true));
     const { data } = yield call(fetchMove, action.payload);
 
     const move = {
@@ -68,14 +75,15 @@ export function* workerGetSingleMove(action: AppAction): SagaIterator {
       type: data.type.name,
       target: data.target.name,
       effects: data.effect_entries.map((item: any) => {
-        // const { effect, short_effect } = item;
         return item.short_effect
           .replace(/\$effect_chance%/, '')
           .replace(/ +/g, ' ');
       })[0],
     };
     yield put(putSingleMove(move));
+    yield put(putToggleBackDrop(false));
   } catch (error) {
+    yield put(putToggleBackDrop(false));
     yield put(fetchError(error.message));
   }
 }

@@ -9,3 +9,5 @@ export const GET_SINGLE_MOVE = 'GET_SINGLE_MOVE';
 export const PUT_SINGLE_MOVE = 'PUT_SINGLE_MOVE';
 
 export const FETCH_ERROR = 'FETCH_ERROR';
+
+export const TOGGLE_BACKDROP = 'TOGGLE_BACKDROP';

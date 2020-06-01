@@ -29,6 +29,7 @@ export interface ISingleMove {
 export interface IPagination {
   count: number;
   currentPage: number;
+  backDrop: boolean;
 }
 
 export interface AppAction extends Action {
