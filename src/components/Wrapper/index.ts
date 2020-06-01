@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  @media ${device.mobileL} {
+  @media ${device.mobile} {
     justify-content: center;
   }
 `;

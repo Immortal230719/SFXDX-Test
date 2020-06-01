@@ -18,7 +18,7 @@ export const StyledTitle = styled.h1`
       height: 80px;
     }
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
       font-size: 26px;
     }
   `}

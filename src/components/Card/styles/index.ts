@@ -25,7 +25,7 @@ const Figure = styled.figure`
         height: 120px;
       }
 
-      @media ${device.tablet} {
+      @media ${device.mobile} {
         width: 85px;
         height: 85px;
       }

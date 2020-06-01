@@ -12,7 +12,7 @@ const StyledScrollTop = styled.div`
     width: 50px;
     height: 50px;
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
       width: 30px;
       height: 30px;
     }

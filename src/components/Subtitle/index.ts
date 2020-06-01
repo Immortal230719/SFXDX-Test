@@ -7,7 +7,7 @@ const Subtitle = styled.h3`
     margin: 20px 0;
     font-size: 25px;
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
       text-align: center;
     }
   `}

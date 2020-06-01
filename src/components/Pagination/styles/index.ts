@@ -6,7 +6,7 @@ export const StyledPaginator = styled.div`
     margin: 50px auto;
     width: 500px;
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
       width: 100%;
     }
 
@@ -21,7 +21,7 @@ export const StyledPaginator = styled.div`
         height: 40px;
         cursor: pointer;
 
-        @media ${device.mobileL} {
+        @media ${device.mobile} {
           height: 20px;
         }
 
@@ -40,7 +40,7 @@ export const StyledPaginator = styled.div`
             color: ${theme.colors.black};
           }
 
-          @media ${device.mobileL} {
+          @media ${device.mobile} {
             padding: 0 6px;
           }
         }

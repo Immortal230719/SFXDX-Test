@@ -13,7 +13,7 @@ const Grid = styled.div`
     grid-auto-rows: 200px;
   }
 
-  @media ${device.tablet} {
+  @media ${device.mobile} {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-auto-rows: 150px;
   }
