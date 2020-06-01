@@ -14,12 +14,10 @@ import {
 export function* workerGetPokemons(action: AppAction): SagaIterator {
   try {
     const {
-      data: { count, next, previous, results },
+      data: { count, results },
     } = yield call(fetchPokemons, action.payload);
     const paginationData = {
       count,
-      next,
-      previous,
     };
     yield put(putPagination(paginationData));
     yield put(putPokemons(results));

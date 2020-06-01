@@ -1,12 +1,12 @@
 import { AppAction } from './interfaces';
 
 import { IPagination } from './interfaces';
+import { SET_CURRENT_PAGE } from './types';
 import { PUT_PAGINATION } from 'sagas';
 
 const initialState: IPagination = {
   count: 0,
-  next: '',
-  previous: null,
+  currentPage: 0,
 };
 
 function reducer(
@@ -18,6 +18,11 @@ function reducer(
       return {
         ...state,
         ...payload,
+      };
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: payload,
       };
     default:
       return state;

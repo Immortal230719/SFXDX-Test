@@ -28,8 +28,7 @@ export interface ISingleMove {
 
 export interface IPagination {
   count: number;
-  next: string;
-  previous: null | string;
+  currentPage: number;
 }
 
 export interface AppAction extends Action {
