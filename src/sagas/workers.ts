@@ -1,6 +1,6 @@
 import { AppAction } from 'reducers';
 import { SagaIterator } from '@redux-saga/core';
-import { put, call } from 'redux-saga/effects';
+import { put, call, delay } from 'redux-saga/effects';
 
 import { fetchPokemons, fetchPokemonDetailed, fetchMove } from 'API';
 import {
@@ -53,7 +53,8 @@ export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
       }),
     };
     yield put(putSinglePokemon(pokemon));
-    // yield put(putToggleBackDrop(false));
+    yield delay(100);
+    yield put(putToggleBackDrop(false));
   } catch (error) {
     yield put(putToggleBackDrop(false));
     yield put(fetchError(error.message));

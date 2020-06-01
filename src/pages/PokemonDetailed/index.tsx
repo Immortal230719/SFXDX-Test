@@ -17,8 +17,8 @@ import {
 import { getSinglePokemon } from 'sagas';
 import { selectSinglePokemon } from 'reducers';
 
-const replacementImages = [...Array(4)].map(() =>
-  Array(4).fill(
+const replacementImages = [...Array(1)].map(() =>
+  Array(1).fill(
     `https://avatars.dicebear.com/api/gridy/pokemon${Math.random()}.svg`
   )
 );
@@ -49,7 +49,9 @@ const PokemonDetailed: React.FC = () => {
         </Link>
       </Wrapper>
       <Container>
-        <ImageList images={images.length === 0 ? replacementImages : images} />
+        <ImageList
+          images={Boolean(images.length) ? images : replacementImages}
+        />
         <Wrapper className="around">
           <TextList title="type" data={types} />
           <TextList title="abilities" data={abilities} />

@@ -20,6 +20,12 @@ export const StyledTitle = styled.h1`
 
     @media ${device.mobile} {
       font-size: 26px;
+
+      img {
+        top: 30px;
+        width: 30px;
+        height: 30px;
+      }
     }
   `}
 `;
