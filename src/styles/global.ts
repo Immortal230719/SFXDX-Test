@@ -10,18 +10,16 @@ function fontFace(
 ) {
   return `
     @font-face{
-        font-family: "${name}";
-        src: url(${require('../../public/fonts/' +
-          src +
-          '.woff')}) format("woff"),
-             url(${require('../../public/fonts/' +
-               src +
-               '.ttf')}) format("truetype"),
-             url(${require('../../public/fonts/' +
-               src +
-               '.svg')}#${name}) format("svg");
-        font-style: ${fontStyle};
-        font-weight: ${fontWeight};
+      font-family: "${name}";
+      src:  url(${require('../../public/fonts/' +
+        src +
+        '.woff')}) format("woff"),
+            url(${require('../../public/fonts/' +
+              src +
+              '.ttf')}) format("truetype"),
+            url(${require('../../public/fonts/' + src + '.svg')}) format("svg");
+      font-style: ${fontStyle};
+      font-weight: ${fontWeight};
     }
 `;
 }
@@ -43,7 +41,7 @@ export default createGlobalStyle`
         padding: 20px 30px;
       }
 
-      @media ${device.mobileL} {
+      @media ${device.mobile} {
         padding: 20px 10px;
       }
     }
@@ -61,20 +59,11 @@ export default createGlobalStyle`
       justify-content: space-around;
     }
     
-
-    #react-paginate ul {
-      display: inline-block;
-      padding-left: 15px;
-      padding-right: 15px;
-    }    
-
-    #react-paginate li {
-      display: inline-block;
-    }
     a {
       text-decoration: none;
       color: inherit;
     }
+
     ul {    
       list-style: none;
       padding: 0;
