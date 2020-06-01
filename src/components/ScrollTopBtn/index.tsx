@@ -27,7 +27,7 @@ const ScrollTop: React.FC = () => {
     return () => {
       document.removeEventListener('scroll', toggleVisibility);
     };
-  }, [toggleVisibility]);
+  }, []);
 
   return (
     <>
