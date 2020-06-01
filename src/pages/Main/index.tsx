@@ -15,14 +15,18 @@ import {
 } from 'components';
 
 import { getPokemons } from 'sagas';
-import { selectPokemons, selectPagination } from 'reducers';
-import { IPokemonBase } from 'reducers';
+import {
+  selectPokemons,
+  selectPagination,
+  setCurrentPage,
+  IPokemonBase,
+} from 'reducers';
 
 const Main: FC = () => {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch<Dispatch<AnyAction>>();
   const pokemons = useSelector(selectPokemons);
-  const pagination = useSelector(selectPagination);
+  const { count, currentPage } = useSelector(selectPagination);
 
   useEffect(() => {
     if (pokemons.length === 0) {
@@ -34,8 +38,9 @@ const Main: FC = () => {
     setSearch(e.target.value);
   };
 
-  const handlePageClick = (e: any) => {
-    dispatch(getPokemons(e.selected));
+  const handlePageClick = ({ selected }: any) => {
+    dispatch(getPokemons(selected));
+    dispatch(setCurrentPage(selected));
   };
 
   const renderPokemons = (arrOfPokemons: IPokemonBase[]) => {
@@ -66,7 +71,11 @@ const Main: FC = () => {
       <Wrapper className="center">
         <Logo />
       </Wrapper>
-      <Pagination data={pagination} handlePageClick={handlePageClick} />
+      <Pagination
+        count={count}
+        handlePageClick={handlePageClick}
+        currentPage={currentPage}
+      />
       <Input
         type="text"
         value={search}
@@ -75,7 +84,6 @@ const Main: FC = () => {
       />
 
       <Container>{renderPokemons(pokemons)}</Container>
-      <Pagination data={pagination} handlePageClick={handlePageClick} />
     </Layout>
   );
 };

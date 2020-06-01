@@ -10,6 +10,8 @@ Tools:
 6. redux-saga
 7. eslint-airbnb
 
+Powered by [DiceBear Avatars][df1]
+
 ### To run project locally:
 
 ```
@@ -33,3 +35,5 @@ then
 ```
 yarn start
 ```
+
+[df1]: https://avatars.dicebear.com/

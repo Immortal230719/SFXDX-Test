@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 import { routes, MYROUTE } from 'core';
 
+import { ScrollTopBtn } from 'components';
+
 const currentRoutes = routes();
 
 const renderRoutes = (arrOfRoutes: MYROUTE[]) => {
@@ -18,7 +20,12 @@ const renderRoutes = (arrOfRoutes: MYROUTE[]) => {
 };
 
 const Pages: FC = () => {
-  return <>{renderRoutes(currentRoutes)}</>;
+  return (
+    <>
+      {renderRoutes(currentRoutes)}
+      <ScrollTopBtn />
+    </>
+  );
 };
 
 export default Pages;

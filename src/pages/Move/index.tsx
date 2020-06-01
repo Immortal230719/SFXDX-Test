@@ -6,7 +6,15 @@ import { Dispatch, AnyAction } from 'redux';
 import { getSingleMove } from 'sagas';
 import { selectMove } from 'reducers';
 
-import { Layout, Title, Container, Button, MoveList } from 'components';
+import {
+  Layout,
+  Title,
+  Container,
+  Button,
+  MoveList,
+  Wrapper,
+} from 'components';
+import Icon from './pokemon.svg';
 
 const Move: React.FC = () => {
   const dispatch = useDispatch<Dispatch<AnyAction>>();
@@ -20,7 +28,10 @@ const Move: React.FC = () => {
 
   return (
     <Layout>
-      <Title>Move {move.name}</Title>
+      <Wrapper className="center">
+        <Title icon={Icon}>Move {move.name}</Title>
+      </Wrapper>
+
       <Container>
         <MoveList data={move} />
         <Button onClick={history.goBack} text="back" />

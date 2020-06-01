@@ -13,3 +13,4 @@ export { default as MoveList } from './MoveList';
 export { default as Pagination } from './Pagination';
 export { default as Wrapper } from './Wrapper';
 export { default as Logo } from './Logo';
+export { default as ScrollTopBtn } from './ScrollTopBtn';

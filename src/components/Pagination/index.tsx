@@ -4,13 +4,16 @@ import ReactPaginate from 'react-paginate';
 import { StyledPaginator } from './styles';
 
 interface IPaginationProps {
-  data: any;
+  count: number;
   handlePageClick: any;
+  currentPage: number;
 }
 
-const Pagination: React.FC<IPaginationProps> = ({ data, handlePageClick }) => {
-  const { count } = data;
-
+const Pagination: React.FC<IPaginationProps> = ({
+  count,
+  handlePageClick,
+  currentPage,
+}) => {
   return (
     <StyledPaginator>
       <ReactPaginate
@@ -23,6 +26,7 @@ const Pagination: React.FC<IPaginationProps> = ({ data, handlePageClick }) => {
         pageRangeDisplayed={2}
         onPageChange={handlePageClick}
         activeClassName={'active'}
+        initialPage={currentPage}
       />
     </StyledPaginator>
   );

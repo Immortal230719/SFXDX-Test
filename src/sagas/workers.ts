@@ -14,12 +14,10 @@ import {
 export function* workerGetPokemons(action: AppAction): SagaIterator {
   try {
     const {
-      data: { count, next, previous, results },
+      data: { count, results },
     } = yield call(fetchPokemons, action.payload);
     const paginationData = {
       count,
-      next,
-      previous,
     };
     yield put(putPagination(paginationData));
     yield put(putPokemons(results));
@@ -69,7 +67,7 @@ export function* workerGetSingleMove(action: AppAction): SagaIterator {
       damageClass: data.damage_class.name,
       type: data.type.name,
       target: data.target.name,
-      entries: data.effect_entries.map((item: any) => {
+      effects: data.effect_entries.map((item: any) => {
         // const { effect, short_effect } = item;
         return item.short_effect
           .replace(/\$effect_chance%/, '')

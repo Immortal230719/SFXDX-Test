@@ -10,6 +10,7 @@ export { default as Pagination } from './pagination';
 export * from './interfaces';
 export * from './types';
 export * from './selectors';
+export * from './actions';
 
 export type IPokemonsReducer = ReturnType<typeof reducer>;
 export type ISinglePokemonReducer = ReturnType<typeof singlePokemonReducer>;

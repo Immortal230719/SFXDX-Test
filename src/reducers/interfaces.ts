@@ -23,13 +23,12 @@ export interface ISingleMove {
   damageClass: string;
   type: string;
   target: string;
-  entries: any;
+  effects: any;
 }
 
 export interface IPagination {
   count: number;
-  next: string;
-  previous: null | string;
+  currentPage: number;
 }
 
 export interface AppAction extends Action {
