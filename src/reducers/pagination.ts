@@ -28,7 +28,7 @@ function reducer(
     case TOGGLE_BACKDROP:
       return {
         ...state,
-        backDrop: !state.backDrop,
+        backDrop: payload,
       };
     default:
       return state;

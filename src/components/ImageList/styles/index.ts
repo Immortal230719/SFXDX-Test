@@ -6,6 +6,11 @@ const StyledImageList = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export default StyledImageList;

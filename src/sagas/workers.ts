@@ -53,7 +53,7 @@ export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
       }),
     };
     yield put(putSinglePokemon(pokemon));
-    yield put(putToggleBackDrop(false));
+    // yield put(putToggleBackDrop(false));
   } catch (error) {
     yield put(putToggleBackDrop(false));
     yield put(fetchError(error.message));
