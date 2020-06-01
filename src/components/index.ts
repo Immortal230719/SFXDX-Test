@@ -14,3 +14,4 @@ export { default as Pagination } from './Pagination';
 export { default as Wrapper } from './Wrapper';
 export { default as Logo } from './Logo';
 export { default as ScrollTopBtn } from './ScrollTopBtn';
+export { default as BackDrop } from './BackDrop';

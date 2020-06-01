@@ -17,9 +17,13 @@ import {
 import { getSinglePokemon } from 'sagas';
 import { selectSinglePokemon } from 'reducers';
 
-interface IPokemonDetailedProps {}
+const replacementImages = [...Array(4)].map(() =>
+  Array(4).fill(
+    `https://avatars.dicebear.com/api/gridy/pokemon${Math.random()}.svg`
+  )
+);
 
-const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
+const PokemonDetailed: React.FC = () => {
   const dispatch = useDispatch<Dispatch<AnyAction>>();
   const { pokemoname } = useParams();
   const { name, stats, images, moves, types, abilities } = useSelector(
@@ -45,7 +49,7 @@ const PokemonDetailed: React.FC<IPokemonDetailedProps> = () => {
         </Link>
       </Wrapper>
       <Container>
-        <ImageList images={images} />
+        <ImageList images={images.length === 0 ? replacementImages : images} />
         <Wrapper className="around">
           <TextList title="type" data={types} />
           <TextList title="abilities" data={abilities} />

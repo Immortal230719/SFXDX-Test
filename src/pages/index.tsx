@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 import { routes, MYROUTE } from 'core';
+import { useSelector } from 'react-redux';
+import { selectPagination } from 'reducers';
 
-import { ScrollTopBtn } from 'components';
+import { ScrollTopBtn, BackDrop } from 'components';
 
 const currentRoutes = routes();
 
@@ -20,8 +22,10 @@ const renderRoutes = (arrOfRoutes: MYROUTE[]) => {
 };
 
 const Pages: FC = () => {
+  const { backDrop } = useSelector(selectPagination);
   return (
     <>
+      <BackDrop show={backDrop} />
       {renderRoutes(currentRoutes)}
       <ScrollTopBtn />
     </>

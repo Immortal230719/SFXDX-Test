@@ -15,7 +15,7 @@ export const StyledButton = styled.button`
     cursor: pointer;
     margin: 0 auto;
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
       width: 100px;
       height: 50px;
       font-size: 14px;

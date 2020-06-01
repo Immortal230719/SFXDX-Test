@@ -5,8 +5,7 @@ interface DEVICE {
 }
 
 const size: DEVICE = {
-  mobileS: '320px',
-  mobileL: '576px',
+  mobile: '576px',
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px',
@@ -14,8 +13,7 @@ const size: DEVICE = {
 };
 
 const device: DEVICE = {
-  mobileS: `(max-width: ${size.mobileS})`,
-  mobileL: `(max-width: ${size.mobileL})`,
+  mobile: `(max-width: ${size.mobile})`,
   tablet: `(max-width: ${size.tablet})`,
   laptop: `(max-width: ${size.laptop})`,
   laptopL: `(max-width: ${size.laptopL})`,

@@ -12,7 +12,7 @@ const StyledLogo = styled.div`
       margin: 0 auto;
       height: 180px;
 
-      @media ${device.mobileL} {
+      @media ${device.mobile} {
         height: 100px;
       }
     }
