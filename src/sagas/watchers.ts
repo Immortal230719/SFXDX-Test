@@ -1,7 +1,7 @@
 import { SagaIterator } from '@redux-saga/core';
 import { all, takeLeading } from 'redux-saga/effects';
 
-import * as types from './types';
+import * as types from 'reducers';
 
 import {
   workerGetPokemons,

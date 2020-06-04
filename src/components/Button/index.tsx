@@ -4,7 +4,7 @@ import { StyledButton } from './styles';
 
 interface IButtonProps {
   text: string;
-  onClick?: any;
+  onClick?: () => void;
 }
 
 const Button: React.FC<IButtonProps> = ({ text, onClick }) => {

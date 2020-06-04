@@ -1,6 +1,7 @@
 import React from 'react';
 
 import StyledImageList from './styles';
+
 interface IImageListProps {
   images: string[];
 }
@@ -10,7 +11,7 @@ const ImageList: React.FC<IImageListProps> = ({ images }) => {
     <StyledImageList>
       {images.map((image: string, index: number) => {
         return (
-          <li key={index + Math.random()}>
+          <li key={image}>
             <img src={image} alt="pokemon" />
           </li>
         );

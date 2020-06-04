@@ -1,3 +1,5 @@
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+
 export const GET_POKEMONS = 'GET_POKEMONS';
 export const PUT_POKEMONS = 'PUT_POKEMONS';
 export const PUT_PAGINATION = 'PUT_PAGINATION';

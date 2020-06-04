@@ -1,5 +1,3 @@
-import { Action } from 'redux';
-
 export interface IPokemonBase {
   name: string;
   url: string;
@@ -7,11 +5,16 @@ export interface IPokemonBase {
 
 export interface ISinglePokemon {
   name: string;
-  stats: any;
-  abilities: string[];
-  images: string[];
-  types: string[];
-  moves: any;
+  stats: Array<string>;
+  abilities: Array<string>;
+  images: Array<string | unknown>;
+  types: Array<string>;
+  moves: Array<MoveID> | null;
+}
+
+export interface MoveID {
+  id: string;
+  name: string;
 }
 
 export interface ISingleMove {
@@ -23,20 +26,11 @@ export interface ISingleMove {
   damageClass: string;
   type: string;
   target: string;
-  effects: any;
+  effects: string;
 }
 
 export interface IPagination {
   count: number;
-  currentPage: number;
-  backDrop: boolean;
-}
-
-export interface AppAction extends Action {
-  payload?: any;
-}
-
-export interface GetPokemons extends AppAction {
-  type: 'GET_POKEMONS';
-  payload: string;
+  currentPage?: number;
+  backDrop?: boolean;
 }

@@ -10,7 +10,7 @@ export interface MYROUTE {
   exact: boolean;
 }
 
-export const routes = (): MYROUTE[] => {
+export const routes = (): Array<MYROUTE> => {
   return [
     {
       path: '/',

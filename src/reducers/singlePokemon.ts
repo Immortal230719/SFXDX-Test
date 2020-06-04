@@ -1,7 +1,6 @@
-import { AppAction } from './interfaces';
-
+import { AnyAction } from 'redux';
 import { ISinglePokemon } from './interfaces';
-import { PUT_SINGLE_POKEMON } from 'sagas';
+import { PUT_SINGLE_POKEMON } from './reducerTypes';
 
 const initialState: ISinglePokemon = {
   name: '',
@@ -14,7 +13,7 @@ const initialState: ISinglePokemon = {
 
 function reducer(
   state = initialState,
-  { type, payload }: AppAction
+  { type, payload }: AnyAction
 ): ISinglePokemon {
   switch (type) {
     case PUT_SINGLE_POKEMON:

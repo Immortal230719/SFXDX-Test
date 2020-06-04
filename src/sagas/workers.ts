@@ -1,4 +1,5 @@
-import { AppAction } from 'reducers';
+import { ISinglePokemon } from 'reducers';
+import { AnyAction } from 'redux';
 import { SagaIterator } from '@redux-saga/core';
 import { put, call, delay } from 'redux-saga/effects';
 
@@ -10,9 +11,9 @@ import {
   putSingleMove,
   putPagination,
   putToggleBackDrop,
-} from './actions';
+} from './sagaActions';
 
-export function* workerGetPokemons(action: AppAction): SagaIterator {
+export function* workerGetPokemons(action: AnyAction): SagaIterator {
   try {
     yield put(putToggleBackDrop(true));
     const {
@@ -30,21 +31,22 @@ export function* workerGetPokemons(action: AppAction): SagaIterator {
   }
 }
 
-export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
+export function* workerGetSinglePokemon(action: AnyAction): SagaIterator {
   try {
     yield put(putToggleBackDrop(true));
     const { data } = yield call(fetchPokemonDetailed, action.payload);
-
     const { name, stats, sprites, types, moves, abilities } = data;
 
-    const pokemon = {
+    const pokemon: ISinglePokemon = {
       name,
-      abilities: abilities.map(({ ability }: any) => ability.name),
-      stats: stats.map(({ stat }: any) => stat.name),
+      abilities: abilities.map(
+        ({ ability }: { ability: { name: string } }) => ability.name
+      ),
+      stats: stats.map(({ stat }: { stat: { name: string } }) => stat.name),
       images: Object.values(sprites)
-        .filter((url: any) => Boolean(url))
+        .filter(url => Boolean(url))
         .reverse(),
-      types: types.map((element: any) => element.type.name),
+      types: types.map(({ type }: { type: { name: string } }) => type.name),
       moves: moves.map(({ move }: any) => {
         return {
           id: move.url.match(/(move\/)([0-9]+)/g)[0].match(/[0-9]+/)[0],
@@ -61,7 +63,7 @@ export function* workerGetSinglePokemon(action: AppAction): SagaIterator {
   }
 }
 
-export function* workerGetSingleMove(action: AppAction): SagaIterator {
+export function* workerGetSingleMove(action: AnyAction): SagaIterator {
   try {
     yield put(putToggleBackDrop(true));
     const { data } = yield call(fetchMove, action.payload);

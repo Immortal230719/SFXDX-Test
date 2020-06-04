@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 
 import InputWrap from './styles';
+
 interface IindexProps {
   type: string;
   value: string;
-  onChange: any;
+  onChange(event: FormEvent<HTMLInputElement>): void;
   placeholder: string;
 }
 

@@ -1,7 +1,6 @@
-import { AppAction } from './interfaces';
-
+import { AnyAction } from 'redux';
+import { PUT_SINGLE_MOVE } from './reducerTypes';
 import { ISingleMove } from './interfaces';
-import { PUT_SINGLE_MOVE } from 'sagas';
 
 const initialState: ISingleMove = {
   moveId: 0,
@@ -12,12 +11,12 @@ const initialState: ISingleMove = {
   damageClass: '',
   type: '',
   target: '',
-  effects: [],
+  effects: '',
 };
 
 function reducer(
   state = initialState,
-  { type, payload }: AppAction
+  { type, payload }: AnyAction
 ): ISingleMove {
   switch (type) {
     case PUT_SINGLE_MOVE:

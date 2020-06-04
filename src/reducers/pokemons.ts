@@ -1,13 +1,12 @@
-import { AppAction } from './interfaces';
-
+import { AnyAction } from 'redux';
+import { PUT_POKEMONS } from './reducerTypes';
 import { IPokemonBase } from './interfaces';
-import { PUT_POKEMONS } from 'sagas';
 
 const initialState: IPokemonBase[] = [];
 
 function reducer(
   state = initialState,
-  { type, payload }: AppAction
+  { type, payload }: AnyAction
 ): IPokemonBase[] {
   switch (type) {
     case PUT_POKEMONS:

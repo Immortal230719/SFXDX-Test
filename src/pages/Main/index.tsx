@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
@@ -22,6 +22,10 @@ import {
   IPokemonBase,
 } from 'reducers';
 
+interface IPaginationSelectedPage {
+  selected: number;
+}
+
 const Main: FC = () => {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch<Dispatch<AnyAction>>();
@@ -34,16 +38,19 @@ const Main: FC = () => {
     }
   }, [dispatch, pokemons.length]);
 
-  const changeHandler = (e: any) => {
-    setSearch(e.target.value);
+  const changeHandler = (event: FormEvent<HTMLInputElement>) => {
+    const element = event.target as HTMLInputElement;
+    if (element) {
+      setSearch(element.value);
+    }
   };
 
-  const handlePageClick = ({ selected }: any) => {
+  const handlePageClick = ({ selected }: IPaginationSelectedPage) => {
     dispatch(getPokemons(selected));
     dispatch(setCurrentPage(selected));
   };
 
-  const renderPokemons = (arrOfPokemons: IPokemonBase[]) => {
+  const renderPokemons = (arrOfPokemons: Array<IPokemonBase>) => {
     return (
       <Grid>
         {arrOfPokemons

@@ -34,6 +34,8 @@ const PokemonDetailed: React.FC = () => {
     name.length
   )}`;
 
+  const isImages: boolean = Boolean(images.length);
+
   useEffect(() => {
     if (name === '' || pokemoname !== name) {
       dispatch(getSinglePokemon(pokemoname));
@@ -49,9 +51,7 @@ const PokemonDetailed: React.FC = () => {
         </Link>
       </Wrapper>
       <Container>
-        <ImageList
-          images={Boolean(images.length) ? images : replacementImages}
-        />
+        <ImageList images={isImages ? images : replacementImages} />
         <Wrapper className="around">
           <TextList title="type" data={types} />
           <TextList title="abilities" data={abilities} />

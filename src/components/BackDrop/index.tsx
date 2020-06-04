@@ -13,12 +13,12 @@ const BackDrop: React.FC<IindexProps> = ({ show }) => {
         <StyledBackDrop>
           <div className="mesh-loader">
             <div className="set-one">
-              <div className="circle"></div>
-              <div className="circle"></div>
+              <div className="circle" />
+              <div className="circle" />
             </div>
             <div className="set-two">
-              <div className="circle"></div>
-              <div className="circle"></div>
+              <div className="circle" />
+              <div className="circle" />
             </div>
           </div>
         </StyledBackDrop>

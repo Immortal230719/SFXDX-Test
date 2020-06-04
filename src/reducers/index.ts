@@ -8,7 +8,7 @@ export { default as SinglePokemon } from './singlePokemon';
 export { default as Move } from './move';
 export { default as Pagination } from './pagination';
 export * from './interfaces';
-export * from './types';
+export * from './reducerTypes';
 export * from './selectors';
 export * from './actions';
 

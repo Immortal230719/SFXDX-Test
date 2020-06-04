@@ -1,8 +1,10 @@
-import { AppAction } from './interfaces';
-
+import { AnyAction } from 'redux';
+import {
+  SET_CURRENT_PAGE,
+  PUT_PAGINATION,
+  TOGGLE_BACKDROP,
+} from './reducerTypes';
 import { IPagination } from './interfaces';
-import { SET_CURRENT_PAGE } from './types';
-import { PUT_PAGINATION, TOGGLE_BACKDROP } from 'sagas';
 
 const initialState: IPagination = {
   count: 0,
@@ -12,7 +14,7 @@ const initialState: IPagination = {
 
 function reducer(
   state = initialState,
-  { type, payload }: AppAction
+  { type, payload }: AnyAction
 ): IPagination {
   switch (type) {
     case PUT_PAGINATION:
