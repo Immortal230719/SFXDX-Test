@@ -1,7 +1,5 @@
-import { STR } from 'typings';
-
-interface DEVICE {
-  [key: string]: STR;
+type DEVICE = {
+  [key: string]: string;
 }
 
 const size: DEVICE = {
@@ -12,7 +10,7 @@ const size: DEVICE = {
   desktop: '1920px',
 };
 
-const device: DEVICE = {
+export const device: DEVICE = {
   mobile: `(max-width: ${size.mobile})`,
   tablet: `(max-width: ${size.tablet})`,
   laptop: `(max-width: ${size.laptop})`,
@@ -20,5 +18,3 @@ const device: DEVICE = {
   desktop: `(max-width: ${size.desktop})`,
   desktopL: `(max-width: ${size.desktop})`,
 };
-
-export default device;
