@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { device } from 'styles';
+import { device } from '../../styles';
 
-const Grid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: 300px;
@@ -28,5 +28,3 @@ const Grid = styled.div`
     }
   }
 `;
-
-export default Grid;

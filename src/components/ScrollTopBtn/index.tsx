@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Arrow from './triangle.svg';
 import StyledScrollTop from './styles';
 
-const ScrollTop: React.FC = () => {
+export const ScrollTopBtn: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -33,11 +33,9 @@ const ScrollTop: React.FC = () => {
     <>
       {visible && (
         <StyledScrollTop onClick={scrollToTop}>
-          <img tabIndex={0} src={Arrow} alt="arrow-up" />
+          <img src={Arrow} alt="arrow-up" />
         </StyledScrollTop>
       )}
     </>
   );
 };
-
-export default ScrollTop;

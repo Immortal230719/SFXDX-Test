@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { device } from 'styles';
+import { device } from '../../../styles';
 
 export const StyledButton = styled.button`
   ${({ theme }) => css`

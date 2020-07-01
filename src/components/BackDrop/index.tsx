@@ -2,29 +2,25 @@ import React from 'react';
 
 import { StyledBackDrop } from './styles';
 
-interface IindexProps {
+type BackDropProps = {
   show: boolean;
 }
 
-const BackDrop: React.FC<IindexProps> = ({ show }) => {
-  return (
-    <>
-      {show && (
-        <StyledBackDrop>
-          <div className="mesh-loader">
-            <div className="set-one">
-              <div className="circle"></div>
-              <div className="circle"></div>
-            </div>
-            <div className="set-two">
-              <div className="circle"></div>
-              <div className="circle"></div>
-            </div>
-          </div>
-        </StyledBackDrop>
-      )}
-    </>
-  );
-};
-
-export default BackDrop;
+export const BackDrop: React.FC<BackDropProps> = ({ show }) => (
+  <>
+    {show && (
+    <StyledBackDrop>
+      <div className="mesh-loader">
+        <div className="set-one">
+          <div className="circle" />
+          <div className="circle" />
+        </div>
+        <div className="set-two">
+          <div className="circle" />
+          <div className="circle" />
+        </div>
+      </div>
+    </StyledBackDrop>
+    )}
+  </>
+);

@@ -7,16 +7,17 @@ import { Provider } from 'react-redux';
 import './styles/lib.css';
 
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyles, theme } from 'styles';
 
-import { configureStore, sagaMiddleware as sagaMiddlewareRun } from 'core';
-import Pages from 'pages';
-import rootSaga from 'sagas/watchers';
+// import { configureStore, sagaMiddleware as sagaMiddlewareRun } from './core';
+import { store } from './init/rootStore';
+import Pages from './bus';
+// import rootSaga from './sagas/watchers';
+import { GlobalStyles, theme } from './styles';
 
-const store = configureStore();
+// const store = configureStore();
 const history = createBrowserHistory();
 
-sagaMiddlewareRun.run(rootSaga);
+// sagaMiddlewareRun.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -29,5 +30,5 @@ ReactDOM.render(
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

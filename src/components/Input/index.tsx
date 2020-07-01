@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 
 import InputWrap from './styles';
-interface IindexProps {
+
+type InputProps = {
   type: string;
   value: string;
-  onChange: any;
+  onChange(event: FormEvent<HTMLInputElement>): void;
   placeholder: string;
 }
 
-const Input: React.FC<IindexProps> = ({
+export const Input: React.FC<InputProps> = ({
   type,
   value,
   onChange,
@@ -35,5 +36,3 @@ const Input: React.FC<IindexProps> = ({
     </InputWrap>
   );
 };
-
-export default Input;

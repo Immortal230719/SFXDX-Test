@@ -1,22 +1,17 @@
 import React from 'react';
 
 import StyledImageList from './styles';
-interface IImageListProps {
+
+type ImageListProps = {
   images: string[];
 }
 
-const ImageList: React.FC<IImageListProps> = ({ images }) => {
-  return (
-    <StyledImageList>
-      {images.map((image: string, index: number) => {
-        return (
-          <li key={index + Math.random()}>
-            <img src={image} alt="pokemon" />
-          </li>
-        );
-      })}
-    </StyledImageList>
-  );
-};
-
-export default ImageList;
+export const ImageList: React.FC<ImageListProps> = ({ images }) => (
+  <StyledImageList>
+    {images.map((image: string) => (
+      <li key={image}>
+        <img src={image} alt="pokemon" />
+      </li>
+    ))}
+  </StyledImageList>
+);
