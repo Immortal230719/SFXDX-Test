@@ -5,6 +5,8 @@ import {
   FETCH_POKEMONS_ERROR,
   FETCH_POKEMONS_ASYNC,
   SET_CURRENT_PAGE,
+  SEARCH_POKEMONS,
+  searchPokemonsAction,
   setCurrentPageAction,
   PokemonsActionTypes,
   fillPokemonsAction,
@@ -34,6 +36,12 @@ export function StopFetchingPokemons(): PokemonsActionTypes {
 export function fillPokemons(payload: PokemonsType): fillPokemonsAction {
   return {
     type: FILL_POKEMONS,
+    payload,
+  };
+}
+export function searchPokemons(payload: string): searchPokemonsAction {
+  return {
+    type: SEARCH_POKEMONS,
     payload,
   };
 }
