@@ -1,4 +1,6 @@
-import React, { FC, ReactElement } from 'react';
+import React, {
+  FC, ReactElement, FormEvent,
+} from 'react';
 import { useDispatch } from 'react-redux';
 
 // Tools
@@ -13,18 +15,26 @@ import {
   Container,
   BackDrop,
   Title,
+  Subtitle,
+  Input,
 } from '../../components';
 import { PokemonBaseType } from './types';
 
-import { FetchPokemonsAsync, setCurrentPage } from './actions';
-import { useStarshipsFetch } from './hooks/usePokemonsFetch';
+import { FetchPokemonsAsync, setCurrentPage, searchPokemons } from './actions';
+import { usePokemonFetch } from './hooks/usePokemonsFetch';
 
 
 export const Pokemons: FC = () => {
   const dispatch = useDispatch();
   const {
-    isFetching, data, error, currentPage,
-  } = useStarshipsFetch();
+    isFetching,
+    data,
+    error,
+    currentPage,
+    searchValue,
+    resArrOfPokemons,
+    nothingFound,
+  } = usePokemonFetch();
   const { pokemons, count } = data;
 
   const handlePageClick = ({ selected }: { selected: number }): void => {
@@ -32,12 +42,13 @@ export const Pokemons: FC = () => {
     dispatch(setCurrentPage(selected));
   };
 
+  const searchHandler = (event: FormEvent<HTMLInputElement>): void => {
+    dispatch(searchPokemons(event.currentTarget.value));
+  };
+
   const renderPokemons = (arrOfPokemons: Array<PokemonBaseType>): ReactElement => (
     <Grid>
       {arrOfPokemons
-      // .filter(pokemon => {
-      //   return pokemon.name.startsWith(search.trim().toLowerCase());
-      // })
         .map(({ name }) => (
           <React.Fragment key={name}>
             <Link to={`pokemon/${name}`}>
@@ -54,7 +65,7 @@ export const Pokemons: FC = () => {
   return (
     <Layout>
       {error
-        ? <Wrapper className="center between">
+        ? <Wrapper className="center">
           <Title>
             Something went wrong :(
             <br />
@@ -70,7 +81,24 @@ export const Pokemons: FC = () => {
             handlePageClick={handlePageClick}
             currentPage={currentPage}
           />
-          <Container>{renderPokemons(pokemons)}</Container>
+          <Input
+            type="text"
+            value={searchValue}
+            onChange={searchHandler}
+            placeholder="Search for Pokemon"
+          />
+          {nothingFound
+            ? <Wrapper className="center">
+              <Subtitle>
+                Nothing found on this page, please try another.
+              </Subtitle>
+            </Wrapper>
+            : null}
+          <Container>
+            {nothingFound
+              ? renderPokemons(pokemons)
+              : renderPokemons(resArrOfPokemons)}
+          </Container>
         </>}
       <BackDrop show={isFetching} />
     </Layout>

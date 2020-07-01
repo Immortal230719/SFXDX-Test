@@ -23,7 +23,7 @@ export const MoveDetailed: React.FC = () => {
   return (
     <Layout>
       {error
-        ? <Wrapper className="center between">
+        ? <Wrapper className="center">
           <Title>
             Something went wrong :(
             <br />

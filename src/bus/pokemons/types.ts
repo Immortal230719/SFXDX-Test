@@ -34,6 +34,11 @@ export type FetchPokemonsError = {
   error: true;
   payload: ErrorHttpAction;
 };
+export const SEARCH_POKEMONS = 'SEARCH_POKEMONS';
+export type searchPokemonsAction = {
+  type: typeof SEARCH_POKEMONS;
+  payload: string;
+};
 
 
 export const PUT_PAGINATION = 'PUT_PAGINATION';
@@ -52,3 +57,4 @@ export type PokemonsActionTypes =
   | fillPokemonsAction
   | FetchPokemonsError
   | setCurrentPageAction
+  | searchPokemonsAction

@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, useRef, FormEvent } from 'react';
 
 import InputWrap from './styles';
 
@@ -16,6 +16,13 @@ export const Input: React.FC<InputProps> = ({
   placeholder,
 }) => {
   const [toggle, setToggle] = useState(false);
+  const inputEl = useRef<HTMLInputElement>(null);
+
+  const spanClickHandler = (): void => {
+    if (inputEl.current !== null) {
+      inputEl.current.focus();
+    }
+  };
 
   const focusHandler = () => {
     if (value === '') {
@@ -25,8 +32,14 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <InputWrap>
-      {!toggle && <span>{placeholder}</span>}
+      {!toggle && <span
+        onClick={spanClickHandler}
+        onKeyPress={spanClickHandler}
+        role="button"
+        tabIndex={0}
+      >{placeholder}</span>}
       <input
+        ref={inputEl}
         type={type}
         value={value}
         onChange={onChange}

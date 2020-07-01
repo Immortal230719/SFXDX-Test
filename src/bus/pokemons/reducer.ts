@@ -5,6 +5,7 @@ import {
   FETCH_POKEMONS_STOP,
   FETCH_POKEMONS_ERROR,
   SET_CURRENT_PAGE,
+  SEARCH_POKEMONS,
   PokemonsActionTypes,
   ErrorHttpAction,
 } from './types';
@@ -12,6 +13,7 @@ import {
 export type PokemonsState = {
   data: PokemonsType;
   currentPage: number;
+  searchValue: string;
   isFetching: boolean;
   error: false | ErrorHttpAction;
 }
@@ -21,6 +23,7 @@ const initialState: PokemonsState = {
     pokemons: [],
     count: 0,
   },
+  searchValue: '',
   currentPage: 0,
   isFetching: false,
   error: false,
@@ -51,6 +54,11 @@ export const pokemonsReducer = (
       return {
         ...state,
         currentPage: action.payload,
+      };
+    case SEARCH_POKEMONS:
+      return {
+        ...state,
+        searchValue: action.payload,
       };
     default:
       return state;
