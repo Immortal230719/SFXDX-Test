@@ -50,5 +50,5 @@ export function setCurrentPage(payload: number): setCurrentPageAction {
   return {
     type: SET_CURRENT_PAGE,
     payload,
-  }
+  };
 }

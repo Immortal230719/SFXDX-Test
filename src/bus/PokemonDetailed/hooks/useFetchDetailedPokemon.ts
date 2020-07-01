@@ -12,13 +12,10 @@ type useDetailedPokemonCustomHookType = {
   replacementImages: string[];
 }
 
-const replacementImages = [...Array(1)].map(() => {
-  return `https://avatars.dicebear.com/api/gridy/pokemon${Math.random()}.svg`
-}  
-);
+const replacementImages = [...Array(1)].map(() => `https://avatars.dicebear.com/api/gridy/pokemon${Math.random()}.svg`);
 
-export const useFetchDetailedPokemon = (): DetailedPokemonState & useDetailedPokemonCustomHookType => {
-  
+export const useFetchDetailedPokemon = ():
+DetailedPokemonState & useDetailedPokemonCustomHookType => {
   const { detailed }: { detailed: string } = useParams();
   const dispatch = useDispatch();
   const {
@@ -26,14 +23,14 @@ export const useFetchDetailedPokemon = (): DetailedPokemonState & useDetailedPok
     isFetching,
     error,
   } = useSelector<AppState, DetailedPokemonState>((state) => state.detailed);
-  
+
   const isImages = Boolean(data.images.length);
 
   useEffect(() => {
     if (data.name === '' || detailed !== data.name) {
       dispatch(FetchDetailedPokemonAsync(detailed));
     }
-  }, [dispatch]);
+  }, [dispatch, data.name, detailed]);
 
   return {
     data,

@@ -1,22 +1,27 @@
 export type PokemonDetailedType = {
   data: {
-    name: string,
-    stats: string[],
-    abilities: string[],
-    types: string[],
-    moves: string[],
-    images: string[],
+    name: string;
+    stats: string[];
+    abilities: string[];
+    types: string[];
+    moves: MoveItem[];
+    images: string[];
   };
+}
+
+export type MoveItem = {
+  id: string;
+  name: string;
 }
 
 export const FETCH_DETAILED_POKEMON_START = 'FETCH_DETAILED_PKEMON_START';
 type fetchDetailedPokemonStart = {
-  type: typeof FETCH_DETAILED_POKEMON_START;  
+  type: typeof FETCH_DETAILED_POKEMON_START;
 }
 
 export const FETCH_DETAILED_POKEMON_STOP = 'FETCH_DETAILED_PKEMON_STOP';
 type fetchDetailedPokemonStop = {
-  type: typeof FETCH_DETAILED_POKEMON_STOP;  
+  type: typeof FETCH_DETAILED_POKEMON_STOP;
 }
 
 export const FETCH_DETAILED_POKEMON_FILL = 'FETCH_DETAILED_PKEMON_FILL';
@@ -38,7 +43,7 @@ export type fetchDetailedPokemonAsync = {
   payload: string;
 }
 
-export type DetailedPokemonActionTypes= 
+export type DetailedPokemonActionTypes=
   | fetchDetailedPokemonStart
   | fetchDetailedPokemonStop
   | fetchDetailedPokemonFill

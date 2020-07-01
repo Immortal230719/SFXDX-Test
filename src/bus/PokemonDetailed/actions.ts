@@ -34,14 +34,14 @@ export function setFetchingDetailedPokemonError(payload: string): FetchDetailedP
 export function FillDetailedPokemon(data: PokemonDetailedType): fetchDetailedPokemonFill {
   return {
     type: FETCH_DETAILED_POKEMON_FILL,
-    payload: data
-  }
+    payload: data,
+  };
 }
 
 
-export function FetchDetailedPokemonAsync(name: string): fetchDetailedPokemonAsync {
+export function FetchDetailedPokemonAsync(id: string): fetchDetailedPokemonAsync {
   return {
     type: FETCH_DETAILED_POKEMON_ASYNC,
-    payload: name
-  }
+    payload: id,
+  };
 }

@@ -20,7 +20,7 @@ const initialState: PokemonsState = {
   data: {
     pokemons: [],
     count: 0,
-  },  
+  },
   currentPage: 0,
   isFetching: false,
   error: false,
@@ -51,10 +51,8 @@ export const pokemonsReducer = (
       return {
         ...state,
         currentPage: action.payload,
-      }
+      };
     default:
-      // eslint-disable-next-line no-case-declarations
-      const x: never = action;
       return state;
   }
 };

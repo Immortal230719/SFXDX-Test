@@ -4,6 +4,7 @@ import {
   FETCH_DETAILED_POKEMON_FILL,
   FETCH_DETAILED_POKEMON_ERROR,
   DetailedPokemonActionTypes,
+  MoveItem,
 } from './types';
 
 export type DetailedPokemonState = {
@@ -12,7 +13,7 @@ export type DetailedPokemonState = {
     stats: string[];
     abilities: string[];
     types: string[];
-    moves: string[];
+    moves: MoveItem[];
     images: string[];
   };
   isFetching: boolean;
@@ -54,8 +55,6 @@ export const detailedPokemonReducer = (
         error: Boolean(action.payload),
       };
     default:
-      // eslint-disable-next-line no-case-declarations
-      const x: never = action;
       return state;
   }
 };

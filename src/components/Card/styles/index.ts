@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { device } from 'styles';
+import { device } from '../../../styles';
 
 const Figure = styled.figure`
   ${({ theme }) => css`

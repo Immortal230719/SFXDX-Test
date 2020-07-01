@@ -6,13 +6,15 @@ import {
   Title,
   Container,
   ImageList,
-  TextList,
   Button,
-  UnorderedList,
   Subtitle,
   Wrapper,
   BackDrop,
 } from '../../components';
+import {
+  UnorderedList,
+  TextList,
+} from './elements';
 import { useFetchDetailedPokemon } from './hooks';
 
 export const PokemonDetailed: React.FC = () => {
@@ -46,7 +48,6 @@ export const PokemonDetailed: React.FC = () => {
             </Link>
           </Wrapper>
           <Container>
-            single
             <ImageList images={isImages ? images : replacementImages} />
             <Wrapper className="around">
               <TextList title="type" data={types} />

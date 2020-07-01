@@ -6,7 +6,7 @@ import { FETCH_POKEMONS_ASYNC } from '../types';
 import { fetchPokemons } from './workers';
 
 function* watchFetchPokemons(): SagaIterator {
-  yield takeEvery( FETCH_POKEMONS_ASYNC, fetchPokemons );
+  yield takeEvery(FETCH_POKEMONS_ASYNC, fetchPokemons);
 }
 
 export function* watchPokemons(): SagaIterator {

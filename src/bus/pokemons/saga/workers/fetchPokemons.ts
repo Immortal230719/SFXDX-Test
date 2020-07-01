@@ -4,12 +4,11 @@ import {
   StopFetchingPokemons,
   fillPokemons,
   setFetchingPokemonsError,
-  FetchPokemonsAsync
+  FetchPokemonsAsync,
 } from '../../actions';
 
 // Types
 import { PokemonsType } from '../../types';
- 
 // Workers
 import { makeRequestWithSpinner } from '../../../../workers';
 

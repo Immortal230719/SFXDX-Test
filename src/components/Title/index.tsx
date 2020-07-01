@@ -2,17 +2,13 @@ import React from 'react';
 
 import { StyledTitle } from './styles';
 
-interface IindexProps {
+type TitleProps = {
   icon?: string;
 }
 
-const Title: React.FC<IindexProps> = ({ icon, children }) => {
-  return (
-    <StyledTitle>
-      {children}
-      {Boolean(icon) && <img src={icon} alt="icon" />}
-    </StyledTitle>
-  );
-};
-
-export default Title;
+export const Title: React.FC<TitleProps> = ({ icon, children }) => (
+  <StyledTitle>
+    {children}
+    {Boolean(icon) && <img src={icon} alt="icon" />}
+  </StyledTitle>
+);

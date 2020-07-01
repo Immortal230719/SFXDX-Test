@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import ReactPaginate from 'react-paginate';
 
 import { StyledPaginator } from './styles';
@@ -9,7 +9,7 @@ type selectedItem = {
 
 type PaginationProps = {
   count: number;
-  handlePageClick: ( selected: selectedItem ) => void;
+  handlePageClick: (selected: selectedItem) => void;
   currentPage: number;
 }
 

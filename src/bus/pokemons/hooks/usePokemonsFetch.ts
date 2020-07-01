@@ -18,7 +18,7 @@ export const useStarshipsFetch = (): PokemonsState => {
     if (data.pokemons.length === 0) {
       dispatch(FetchPokemonsAsync(0));
     }
-  }, [dispatch]);
+  }, [dispatch, data.pokemons.length]);
 
   return {
     data,

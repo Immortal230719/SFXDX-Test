@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from 'styles';
+import { device } from '../../../styles';
 
 const StyledScrollTop = styled.div`
   position: fixed;

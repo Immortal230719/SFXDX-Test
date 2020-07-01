@@ -1,15 +1,9 @@
-import React, { FC, ReactElement, useEffect } from 'react';
+import React, { FC, ReactElement } from 'react';
 import {
   Switch,
   Route,
   Redirect,
-  useLocation,
 } from 'react-router';
-import { useSelector } from 'react-redux';
-// import { selectPagination } from 'reducers';
-
-// import { ScrollTopBtn, BackDrop } from 'components';
-// import { usePrevious } from 'utils';
 import { routes, MYROUTE } from './routes';
 
 const currentRoutes = routes();
@@ -23,24 +17,10 @@ const renderRoutes = (arrOfRoutes: MYROUTE[]): ReactElement => (
   </Switch>
 );
 
-const Pages: FC = () => {
-  // const location = useLocation();
-  // const prevLocation = usePrevious(location);
-
-  // useEffect(() => {
-  //   if (prevLocation?.pathname !== location.pathname) {
-  //     console.log(prevLocation?.pathname, location.pathname);
-  //   }
-  // }, [location.pathname, prevLocation]);
-
-  // const { backDrop } = useSelector(selectPagination);
-  return (
-    <>
-      {/* <BackDrop show={backDrop} /> */}
-      {renderRoutes(currentRoutes)}
-      {/* <ScrollTopBtn /> */}
-    </>
-  );
-};
+const Pages: FC = () => (
+  <>
+    {renderRoutes(currentRoutes)}
+  </>
+);
 
 export default Pages;

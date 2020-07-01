@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Pokemons } from '../pokemons';
 import { PokemonDetailed } from '../PokemonDetailed';
-// import Move from 'pages/Move';
+import { MoveDetailed } from '../MoveDetailed';
 
 export type MYROUTE = {
   path: string;
@@ -21,9 +21,9 @@ export const routes = (): Array<MYROUTE> => [
     component: PokemonDetailed,
     exact: false,
   },
-  // {
-  //   path: '/moves/:id',
-  //   component: Move,
-  //   exact: false,
-  // },
+  {
+    path: '/moves/:id',
+    component: MoveDetailed,
+    exact: false,
+  },
 ];
