@@ -9,7 +9,7 @@ interface IImageListProps {
 const ImageList: React.FC<IImageListProps> = ({ images }) => {
   return (
     <StyledImageList>
-      {images.map((image: string, index: number) => {
+      {images.map((image: string) => {
         return (
           <li key={image}>
             <img src={image} alt="pokemon" />

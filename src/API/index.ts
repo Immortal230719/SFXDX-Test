@@ -1,4 +1,5 @@
 import { root } from './config';
+import { PokemonDetailedType } from '../bus/PokemonDetailed/types';
 import { PokemonsType } from '../bus/pokemons/types';
 
 export type FetchPokemonsDataType<T> = (a?: number | string) => Promise<T>;
@@ -8,6 +9,9 @@ type APIFetchDataType = {
     fetch: FetchPokemonsDataType<PokemonsType>;
   };
   count?: number;
+  detailed: {
+    fetch: FetchPokemonsDataType<PokemonDetailedType>
+  }
 }
 
 export const api: APIFetchDataType = {
@@ -21,6 +25,29 @@ export const api: APIFetchDataType = {
         count,
       })),
   },
+  detailed: {
+    fetch: (name): Promise<PokemonDetailedType> => fetch(`${root}pokemon/${name}`)
+    .then((response) => response.json())
+    .then((res) => ({
+      data: {
+        name: res.name,
+        stats: res.stats.map(({ stat }: { stat: { name: string } }) => stat.name),
+        images: Object.values<string>(res.sprites)
+        .filter(url => Boolean(url))
+        .reverse(),
+        types: res.types.map(({ type }: { type: { name: string } }) => type.name),
+        moves: res.moves.map(({ move }: any) => {
+          return {
+            id: move.url.match(/(move\/)([0-9]+)/g)[0].match(/[0-9]+/)[0],
+            name: move.name,
+          };
+        }),
+        abilities: res.abilities.map(
+            ({ ability }: { ability: { name: string } }) => ability.name
+          ),
+      }
+    })),
+  }
 };
 
 // const baseUrl: string = 'https://pokeapi.co/api/v2/';

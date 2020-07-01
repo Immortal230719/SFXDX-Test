@@ -1,0 +1,1 @@
+export { useFetchDetailedPokemon } from './useFetchDetailedPokemon';

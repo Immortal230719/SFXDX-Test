@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Pokemons } from '../pokemons';
-// import PokemonDetailed from 'pages/PokemonDetailed';
+import { PokemonDetailed } from '../PokemonDetailed';
 // import Move from 'pages/Move';
 
 export type MYROUTE = {
@@ -16,11 +16,11 @@ export const routes = (): Array<MYROUTE> => [
     component: Pokemons,
     exact: true,
   },
-  // {
-  //   path: '/pokemon/:pokemoname',
-  //   component: PokemonDetailed,
-  //   exact: false,
-  // },
+  {
+    path: '/pokemon/:detailed',
+    component: PokemonDetailed,
+    exact: false,
+  },
   // {
   //   path: '/moves/:id',
   //   component: Move,
