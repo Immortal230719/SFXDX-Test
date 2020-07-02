@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Montserrat";
+  font-display: swap;
+  src:  url('../assets/fonts/montserrat/montserrat.woff') format("woff"),
+        url('../assets/fonts/montserrat/montserrat.ttf') format("truetype"),
+        url('../assets/fonts/montserrat/montserrat.svg') format("svg");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-display: swap;
+  src:  url('../assets/fonts/montserrat/montserratBold.woff') format("woff"),
+        url('../assets/fonts/montserrat/montserratBold.woff') format("truetype"),
+        url('../assets/fonts/montserrat/montserratBold.woff') format("svg");
+  font-style: normal;
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  font-display: swap;
+  src:  url('../assets/fonts/quicksand/quicksandbold.woff') format("woff"),
+        url('../assets/fonts/quicksand/quicksandbold.ttf') format("truetype"),
+        url('../assets/fonts/quicksand/quicksandbold.svg') format("svg");
+  font-style: normal;
+  font-weight: 900;
+}

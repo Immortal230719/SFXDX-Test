@@ -1,34 +1,10 @@
-/* eslint-disable import/no-dynamic-require */
-/* eslint-disable global-require */
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import { device } from './device';
 import { ThemeType } from '../types';
 
-const fontFace = (
-  name: string,
-  src: string,
-  fontWeight = 400,
-  fontStyle = 'normal',
-): string => {
-  const cssObject = `
-    @font-face {
-      font-family: "${name}";
-      src:  url(${require(`../../public/fonts/${src}.woff`)}) format("woff"),
-            url(${require(`../../public/fonts/${src}.ttf`)}) format("truetype"),
-            url(${require(`../../public/fonts/${src}.svg`)}) format("svg");
-      font-style: ${fontStyle};
-      font-weight: ${fontWeight};
-    }`;
-
-  return cssObject;
-};
-
 export default createGlobalStyle<{ theme: ThemeType }>`
-    ${normalize},
-    ${fontFace('Montserrat', 'montserrat/montserrat', 400, 'normal')}
-    ${fontFace('Montserrat', 'montserrat/montserratBold', 900, 'normal')}
-    ${fontFace('Quicksand', 'quicksand/quicksandbold', 900, 'normal')}
+    ${normalize}
     #root {
       font-family: 'Montserrat';
       background: ${({ theme }): string => theme.colors.background};
