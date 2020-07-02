@@ -1,5 +1,7 @@
 # SFXDX Test
 
+See deployed version on [heroku.com][df2]
+
 Tools:
 
 1. react
@@ -37,3 +39,4 @@ yarn start
 ```
 
 [df1]: https://avatars.dicebear.com/
+[df2]: https://sfxdx-pokemon-test.herokuapp.com/
