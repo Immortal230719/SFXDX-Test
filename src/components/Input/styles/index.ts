@@ -4,6 +4,7 @@ import { device } from '../../../styles';
 const InputWrap = styled.div`
   ${({ theme }) => css`
     position: relative;
+    height: 64px;
     display: flex;
     width: 50%;
     margin: 0 auto;

@@ -5,6 +5,7 @@ import {
   Redirect,
 } from 'react-router';
 import { routes, MYROUTE } from './routes';
+import { ScrollTopBtn } from '../components';
 
 const currentRoutes = routes();
 
@@ -20,6 +21,7 @@ const renderRoutes = (arrOfRoutes: MYROUTE[]): ReactElement => (
 const Pages: FC = () => (
   <>
     {renderRoutes(currentRoutes)}
+    <ScrollTopBtn />
   </>
 );
 
